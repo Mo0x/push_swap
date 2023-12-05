@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = gcc 
-SRCS = ./srcs/main.c 
+SRCS = ./srcs/push_swap.c 
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 INCDIRS = ./includes
 CFLAGS = -Wall -Wextra -Werror -I$(INCDIRS)
@@ -17,7 +17,7 @@ $(NAME) : $(OBJS)
 
 clean :
 	make clean -C ./libft/
-	rm -rf $(OBJS) $(OBJS_BONUS)
+	rm -rf $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME) libft.a

@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/05 15:37:39 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:53:38 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int main(int argc, char **argv)
 {
-
+	(void) argc;
+	(void) argv;
+	ft_printf(1, "test");
 }
