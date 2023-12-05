@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgovinda <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:17:20 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/10/20 17:06:49 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:06:13 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ size_t	ft_strlen(const	char *s)
 	size_t	n;
 
 	n = 0;
-	while (*s++)
-		n++;
+	if (s)
+		while (*s++)
+			n++;
 	return (n);
 }
