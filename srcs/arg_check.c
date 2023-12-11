@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/11 16:38:38 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:49:38 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_strdigit(char *str)
 	i = -1;
 	if (!str)
 		return (0);
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		i++;
 	while (str[++i])
 	{
@@ -50,7 +50,7 @@ void arg_checker(int argc, char **argv)
 	{
 		j = i;
 		while (++j < argc)
-			if (!ft_strcmp(argv[i], argv[j]))
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 			{
 				ft_printf(2, "Error\n");
 				exit(-1);
