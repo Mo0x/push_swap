@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:57:48 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/11 14:51:59 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:09:51 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int				ft_hexa(int fd, unsigned int nb, char format);
 int				ft_number(int fd, int nb);
 int				ft_string(int fd, char *string);
 int				ft_strcmp(char *s1, char *s2);
+long long		ft_atoll(const char *nptr);
 
 #endif
