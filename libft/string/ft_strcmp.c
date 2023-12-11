@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgovinda <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 16:17:20 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/10/20 17:06:49 by mgovinda         ###   ########.fr       */
+/*   Created: 2023/12/11 14:47:06 by mgovinda          #+#    #+#             */
+/*   Updated: 2023/12/11 14:52:52 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const	char *s)
+int	ft_strcmp(char *s1, char *s2)
 {
-	size_t	n;
+	int i;
 
-	n = 0;
-	while (*s++)
-		n++;
-	return (n);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }
