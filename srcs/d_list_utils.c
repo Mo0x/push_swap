@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 17:20:28 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:38:40 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,22 @@ t_dlist	*ft_dlstlast(t_dlist *lst)
 
 void	ft_dlst_cleanup(**lst)
 {
-	t_dlist	*nxt;
+	t_dlist	*current;
 	t_dlist	*prv;
 
 	if (!lst)
 		return ;
-	nxt = *lst->next;
-	prv = *lst->prev;
+	prv = (*lst)->prev;
 	while (*lst)
 	{
-		current = *lst
+		current = *lst;
 		*lst = current->next;
+		free(current);
+	}
+	while(prv)
+	{
+		current = prv;
+		prv = current->prev;
 		free(current);
 	}
 	lst = NULL;
