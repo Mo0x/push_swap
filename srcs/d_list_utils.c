@@ -6,18 +6,30 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 17:03:18 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:20:28 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_dlist	*ft_dlstlast(t_dlist *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
 void	ft_dlst_cleanup(**lst)
 {
-	t_dlist	*current;
+	t_dlist	*nxt;
+	t_dlist	*prv;
 
 	if (!lst)
 		return ;
+	nxt = *lst->next;
+	prv = *lst->prev;
 	while (*lst)
 	{
 		current = *lst
@@ -43,3 +55,18 @@ t_dlist	*ft_dlstnew(int data)
 	return (ret)
 }
 
+void	ft_dlstadd_back(t_list **lst, t_dlist *new)
+{
+	t_dlist	*last;
+
+	if (!new)
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+		new->prev = last;	
+	}
+}
