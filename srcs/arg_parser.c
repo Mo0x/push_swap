@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:36 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 17:22:54 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:24:05 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,34 @@ void ft_eq(char *msg)
 	ft_printf(2, "%s", msg);
 	exit(1);
 }
-static t_dlist	*ft_parse(char **argv)
+
+static void	*ft_free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
+
+static t_dlist	*ft_parse(char **argv, int starting)
 {
 	t_dlist	*ret;
 	t_dlist	*tmp;
 	int		i;
 
-	i = 2;
-	ret = ft_dlstnew(ft_atoi(argv[1]));
+	i = starting + 1;
+	ret = ft_dlstnew(ft_atoi(argv[starting]));
 	if (!ret)
+		ft_eq("Error malloc");
 	while (argv[i])
 	{
 		tmp = ft_dlstnew(ft_atoi(argv[i++]));
-		ft_eq("Error malloc")
 		ft_dlst_add_back(&ret, tmp);
 	}
 	return (ret);
@@ -42,13 +57,13 @@ t_dlist	*ft_arg_parser(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		tmp = ft_split(argv[1]);
+		tmp = ft_split(argv[1], ' ');
 		if (!tmp)
 			ft_eq("Error when tring to split argv");
-		ret = ft_parse(tmp);
-		free(tmp);
+		ret = ft_parse(tmp, 0);
+		ft_free_tab(tmp);
 	}
 	else
-		ret = ft_parse(argv);
+		ret = ft_parse(argv, 1);
 	return (ret);
 }

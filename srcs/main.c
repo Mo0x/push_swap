@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 16:06:34 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:06:16 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,32 @@
 
 int main(int argc, char **argv)
 {
-	t_dlist stack_a;
+	t_dlist *stack_a;
 	char *ret;
 
+	ret = NULL;
+	(void) ret;
 	if (argc == 1)
 		exit(0);
-	arg_checker(argc, argv);
+	ft_arg_checker(argc, argv);
 	stack_a = ft_arg_parser(argc, argv);
-	if (argc == 4)
+	//tmp check list
+
+	/*if (argc == 4)
 		ret = ft_tinysort(stack_a);
 	else if (argc == 6)
 		ret = ft_tinysort_v2(stack_a);
 	else
-		ret = ft_strongsort(stack_a);
-	ft_printf(1, "%s", ret);
+		ret = ft_strongsort(stack_a);*/
+	int i = 1;
+	//t_dlist *tmp;
+	while (stack_a)
+	{
+			ft_printf(1, "%d :%d\n", i, stack_a->data->num);
+			i++;
+			stack_a = stack_a->next;
+	}
+	stack_a = ft_dlst_first(stack_a);
+	ft_dlst_clear(&stack_a);
 	return (0);
 }

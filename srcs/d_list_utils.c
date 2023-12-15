@@ -6,13 +6,13 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 17:38:40 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:21:19 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dlist	*ft_dlstlast(t_dlist *lst)
+t_dlist	*ft_dlst_last(t_dlist *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -21,46 +21,55 @@ t_dlist	*ft_dlstlast(t_dlist *lst)
 	return (lst);
 }
 
-void	ft_dlst_cleanup(**lst)
+t_dlist *ft_dlst_first(t_dlist *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->prev)
+		lst = lst->prev; 
+	return (lst);
+}
+
+void	ft_dlst_clear(t_dlist **lst)
 {
 	t_dlist	*current;
-	t_dlist	*prv;
 
 	if (!lst)
 		return ;
-	prv = (*lst)->prev;
-	while (*lst)
+	while (*lst != NULL)
 	{
 		current = *lst;
 		*lst = current->next;
-		free(current);
-	}
-	while(prv)
-	{
-		current = prv;
-		prv = current->prev;
+		free(current->data);
 		free(current);
 	}
 	lst = NULL;
 }
 
-t_dlist	*ft_dlstnew(int data)
+t_dlist	*ft_dlstnew(int content)
 {
-	t_dlist	ret;
+	t_dlist	*ret;
+	t_data	*data;
 
-	ret = malloc(sizeof(t_list));
+	ret = malloc(sizeof(t_dlist));
 	if (!ret)
 		return (NULL);
-	ret->num = data;
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (NULL); 
 	ret->next = NULL;
 	ret->prev = NULL;
-	ret->index = -1;
-	ret->min = 0;
-	ret->max = 0;
-	return (ret)
+	ret->data = data;
+	ret->data->num = content;
+	ret->data->index = -1;
+	ret->data->min = content;
+	ret->data->max = content;
+	ret->data->top = content;
+	ret->data->bot = content;
+	return (ret);
 }
 
-void	ft_dlstadd_back(t_list **lst, t_dlist *new)
+void	ft_dlst_add_back(t_dlist **lst, t_dlist *new)
 {
 	t_dlist	*last;
 
@@ -70,7 +79,7 @@ void	ft_dlstadd_back(t_list **lst, t_dlist *new)
 		*lst = new;
 	else
 	{
-		last = ft_lstlast(*lst);
+		last = ft_dlst_last(*lst);
 		last->next = new;
 		new->prev = last;	
 	}
