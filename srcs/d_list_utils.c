@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 16:27:20 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:29:05 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ t_dlist *ft_init_lst(void *data)
 	ret->prev = NULL;
 	return (ret);
 }
+

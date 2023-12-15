@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/11 16:49:38 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:29:05 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_strdigit(char *str)
 	return (1);
 }
 
-void arg_checker(int argc, char **argv)
+void ft_arg_checker(int argc, char **argv)
 {
 	int	i;
 	int	j;
