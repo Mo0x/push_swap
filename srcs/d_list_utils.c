@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 19:21:19 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:42:50 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_dlst_clear(t_dlist **lst)
 
 	if (!lst)
 		return ;
-	while (*lst != NULL)
+	while (*lst)
 	{
 		current = *lst;
 		*lst = current->next;
@@ -64,8 +64,6 @@ t_dlist	*ft_dlstnew(int content)
 	ret->data->index = -1;
 	ret->data->min = content;
 	ret->data->max = content;
-	ret->data->top = content;
-	ret->data->bot = content;
 	return (ret);
 }
 
@@ -81,6 +79,26 @@ void	ft_dlst_add_back(t_dlist **lst, t_dlist *new)
 	{
 		last = ft_dlst_last(*lst);
 		last->next = new;
-		new->prev = last;	
+		new->prev = last;
+		if (new->data->num > last->data->max)
+			new->data->max = new->data->num;
+		else if (new->data->num < last->data->min)
+			new->data->min = new->data->num;
 	}
+}
+
+void	ft_dlst_add_front(t_dlist **lst, t_dlist *new)
+{
+	t_dlist *first;
+	
+	if (!new)
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		first = ft_dlst_first(*lst);
+		first->prev = new;
+		new->next = first;
+	} 
 }

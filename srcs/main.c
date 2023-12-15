@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 19:06:16 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:39:49 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	//t_dlist *tmp;
 	while (stack_a)
 	{
-			ft_printf(1, "%d :%d\n", i, stack_a->data->num);
+			ft_printf(1, "%d :%d min = %d max = %d\n", i, stack_a->data->num, stack_a->data->min, stack_a->data->max);
 			i++;
 			stack_a = stack_a->next;
 	}
