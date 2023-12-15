@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = gcc 
-SRCS = ./srcs/push_swap.c ./srcs/arg_check.c
+SRCS = ./srcs/main.c ./srcs/arg_check.c
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 INCDIRS = ./includes
 CFLAGS = -Wall -Wextra -Werror -I$(INCDIRS)
