@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/11 15:30:32 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:24:48 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 
 # include "../libft/includes/libft.h"
 
-void	arg_checker(int argc, char **argv);
+typedef	struct s_dlist
+{
+	int		num;
+	int 	index;
+	int		min;
+	int		max;
+	t_dlist	*next;
+	t_dlist	*prev;
+}			t_dlist;
+
+void	ft_arg_checker(int argc, char **argv);
+void	ft_eq(char *msg);
 
 #endif
