@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:36 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 17:44:42 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:04:18 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,6 @@ void ft_eq(char *msg)
 {
 	ft_printf(2, "%s", msg);
 	exit(1);
-}
-
-static void	*ft_free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
 }
 
 static t_stack	*ft_parse(char **argv, int starting)
@@ -43,13 +29,16 @@ static t_stack	*ft_parse(char **argv, int starting)
 	if (!ret)
 		return (NULL);
 	ret->head = ft_dlst_new(ft_atoi(argv[starting]));
+	ret->size = 1;
 	if (!ret)
 		ft_eq("Error malloc");
 	while (argv[i])
 	{
 		tmp = ft_dlst_new(ft_atoi(argv[i++]));
 		ft_dlst_add_back(&ret->head, tmp);
+		ret->size += 1;
 	}
+	ret->tail = ft_dlst_last(ret->head);
 	return (ret);
 }
 

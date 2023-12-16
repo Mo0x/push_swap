@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 18:52:34 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:59:34 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct 		s_stack
 {
 	t_dlist			*head;
 	t_dlist			*tail;
+	int				size;
 }					t_stack;
 
 
