@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 18:59:34 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:10:19 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct 		s_stack
 
 /* argurments checker*/
 void	ft_arg_checker(int argc, char **argv, int index);
-void	ft_arg_check_split(char **argv);
+void	ft_arg_checker_split(char **argv);
 
 /*split with wc*/
 
