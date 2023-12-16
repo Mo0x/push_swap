@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 17:55:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:52:34 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ void	ft_arg_check_split(char **argv);
 
 char	**ft_split_wc(char const *s, char c, int *wc);
 
-/* error management*/
+/* error & free management*/
 void	ft_eq(char *msg);
+void	*ft_free_tab(char **tab);
 
 /* arguments parser*/
 t_stack	*ft_arg_parser(int argc, char **argv);

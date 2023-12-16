@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 18:22:18 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:53:44 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,19 @@ void	ft_arg_check_split(char **argv)
 	int		ac;
 
 	ac = 0;
+	if (!argv[1][0])
+		ft_eq("Error\n");
 	tmp = ft_split_wc(argv[1], ' ', &ac);
 	if (!tmp)
 		exit(1);
 	if (ft_strcmp(tmp[0], argv[1]) == 0)
 	{
-		if (ft_atoll(argv[1]) > INT_MAX || ft_atoll(argv[1]) < INT_MIN)
-			exit(0);
-		else
+		if (ft_strdigit(argv[1]) == 0 || !argv[1][0] || ft_atoll(argv[1]) > INT_MAX \
+			|| ft_atoll(argv[1]) < INT_MIN)
 			ft_eq("Error\n");
+		else
+			exit(0);
 	}
-	ft_arg_checker(ac, argv, 0);
+	ft_arg_checker(ac, tmp, 0);
+	ft_free_tab(tmp);
 }

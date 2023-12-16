@@ -6,13 +6,13 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:45:23 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 17:50:43 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:54:07 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	*ft_free(char **tab)
+void	*ft_free_tab(char **tab)
 {
 	int	i;
 
@@ -100,7 +100,7 @@ char	**ft_split_wc(char const *s, char c, int *wc)
 		{
 			ret[i] = ft_strdup_word(s, c);
 			if (!ret[i])
-				return (ft_free(ret));
+				return (ft_free_tab(ret));
 			while (*s && *s != c)
 				s++;
 		}
