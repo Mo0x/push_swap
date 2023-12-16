@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:36 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/15 18:24:05 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 17:22:46 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,30 @@ static void	*ft_free_tab(char **tab)
 	return (NULL);
 }
 
-static t_dlist	*ft_parse(char **argv, int starting)
+static t_stack	*ft_parse(char **argv, int starting)
 {
-	t_dlist	*ret;
+	t_stack	*ret;
 	t_dlist	*tmp;
 	int		i;
 
 	i = starting + 1;
-	ret = ft_dlstnew(ft_atoi(argv[starting]));
+	ret = malloc(sizeof(t_stack));
+	if (!ret)
+		return (NULL);
+	ret->head = ft_dlst_new(ft_atoi(argv[starting]));
 	if (!ret)
 		ft_eq("Error malloc");
 	while (argv[i])
 	{
-		tmp = ft_dlstnew(ft_atoi(argv[i++]));
-		ft_dlst_add_back(&ret, tmp);
+		tmp = ft_dlst_new(ft_atoi(argv[i++]));
+		ft_dlst_add_back(&ret->head, tmp);
 	}
 	return (ret);
 }
 
-t_dlist	*ft_arg_parser(int argc, char **argv)
+t_stack	*ft_arg_parser(int argc, char **argv)
 {
-	t_dlist	*ret;
+	t_stack	*ret;
 	char	**tmp;
 
 	if (argc == 2)
