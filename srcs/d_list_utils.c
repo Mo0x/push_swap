@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 17:13:51 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 17:29:59 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_dlst_clear(t_dlist **lst)
 	lst = NULL;
 }
 
-t_dlist	*ft_dls_tnew(int content)
+t_dlist	*ft_dlst_new(int content)
 {
 	t_dlist	*ret;
 

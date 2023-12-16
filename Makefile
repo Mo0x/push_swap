@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = gcc 
-SRCS = ./srcs/main.c ./srcs/arg_check.c ./srcs/d_list_utils.c ./srcs/arg_parser.c 
+SRCS = ./srcs/main.c ./srcs/arg_check.c ./srcs/d_list_utils.c ./srcs/arg_parser.c ./srcs/ft_split_wc.c
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 INCDIRS = ./includes
 CFLAGS = -Wall -Wextra -Werror -I$(INCDIRS) -g3 -fsanitize=address

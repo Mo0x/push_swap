@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 17:25:24 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/16 17:53:30 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ int main(int argc, char **argv)
 	ret = NULL;
 	(void) ret;
 	if (argc == 1)
-		exit(0);
-	ft_arg_checker(argc, argv);
+		exit(1);
+	else if (argc == 2)
+		ft_arg_check_split(argv);
+	else
+		ft_arg_checker(argc, argv, 1);
 	stack_a = ft_arg_parser(argc, argv);
 	//tmp check list
 
