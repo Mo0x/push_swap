@@ -6,25 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:45:23 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 18:54:07 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:34:07 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	*ft_free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
-}
 
 static int	ft_strlen_till(char const *s, char c)
 {

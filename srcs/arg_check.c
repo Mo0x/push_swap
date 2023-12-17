@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 19:10:34 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:34:07 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,14 @@ void	ft_arg_checker_split(char **argv)
 	}
 	ft_arg_checker(ac, tmp, 0);
 	ft_free_tab(tmp);
+}
+
+void	ft_arg_check(int argc, char **argv)
+{
+	if (argc == 1)
+		exit(1);
+	else if (argc == 2)
+		ft_arg_checker_split(argv);
+	else
+		ft_arg_checker(argc, argv, 1);
 }

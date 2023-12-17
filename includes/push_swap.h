@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/16 19:10:19 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:32:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef	struct		s_dlist
 	int				num;
 	int				index;
 	int				cost;
+	int				layer;
 }					t_dlist;
 
 typedef struct 		s_stack
@@ -34,6 +35,7 @@ typedef struct 		s_stack
 
 
 /* argurments checker*/
+void	ft_arg_check(int argc, char **argv);
 void	ft_arg_checker(int argc, char **argv, int index);
 void	ft_arg_checker_split(char **argv);
 
@@ -44,6 +46,7 @@ char	**ft_split_wc(char const *s, char c, int *wc);
 /* error & free management*/
 void	ft_eq(char *msg);
 void	*ft_free_tab(char **tab);
+void	ft_free(void);
 
 /* arguments parser*/
 t_stack	*ft_arg_parser(int argc, char **argv);
