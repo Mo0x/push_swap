@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 19:56:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 20:57:45 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct		s_data
 	int				index;
 	int				cost;
 	int				layer;
+	int				s_index;
 }					t_data;
 
 typedef	struct		s_node
@@ -60,7 +61,9 @@ void	ft_push_swap(t_stack *stack_a);
 void	ft_tiny_sort(t_stack *stack_a);
 void	ft_baby_sort(t_stack *stack_a);
 void	ft_bigboi_sort(t_stack *stack_a);
-
+void	ft_quick_sort(t_stack *stack_a);
+int	ft_average(t_stack *stack); /*to delete later*/
+int	ft_closest(int n, t_stack *stack);
 
 /* double linked list utils*/
 t_node	*ft_dlst_last(t_node *lst);

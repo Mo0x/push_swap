@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 19:46:10 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 20:44:46 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_dlst_clear(t_node **lst)
 	{
 		current = *lst;
 		*lst = (*lst)->next;
+		free(current->data);
 		free(current);
 	}
 	lst = NULL;
@@ -53,16 +54,17 @@ t_node	*ft_dlst_new(int content)
 	ret = malloc(sizeof(t_node));
 	if (!ret)
 		return (NULL);
-	data = malloc(sizeof(data));
+	data = malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
 	ret->data = data;
 	ret->next = NULL;
 	ret->prev = NULL;
 	ret->data->num = content;
-	ret->data->index = -1;
+	ret->data->index = 0;
 	ret->data->cost = -1;
 	ret->data->layer = -1;
+	ret->data->s_index = -1;
 	return (ret);
 }
 
@@ -73,12 +75,16 @@ void	ft_dlst_add_back(t_node **lst, t_node *new)
 	if (!new)
 		return ;
 	if (!(*lst))
+	{
 		*lst = new;
+		new->data->index = 0;
+	}
 	else
 	{
 		last = ft_dlst_last(*lst);
 		last->next = new;
 		new->prev = last;
+		new->data->index = new->prev->data->index + 1;
 	}
 }
 
