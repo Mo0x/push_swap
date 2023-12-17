@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:14:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 20:59:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 21:00:58 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,5 @@ void	ft_quick_sort(t_stack *stack_a)
 	pivot = i + 0;
 	(void)pivot;
 }
+
+/* doc = https://www.programiz.com/dsa/quick-sort*/
