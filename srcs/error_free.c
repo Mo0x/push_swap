@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:30:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 18:40:11 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:48:16 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ft_eq(char *msg)
 	exit(1);
 }
 
-void	*ft_free_tab(char **tab)
+void	ft_free_tab(char **tab)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 18:32:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:56:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,31 @@
 
 # include "../libft/includes/libft.h"
 
-typedef	struct		s_dlist
+typedef struct		s_data
 {
-	struct s_dlist	*next;
-	struct s_dlist	*prev;
-
 	int				num;
 	int				index;
 	int				cost;
 	int				layer;
-}					t_dlist;
+}					t_data;
+
+typedef	struct		s_node
+{
+	struct s_node	*next;
+	struct s_node	*prev;
+	t_data			*data;
+}					t_node;
 
 typedef struct 		s_stack
 {
-	t_dlist			*head;
-	t_dlist			*tail;
+	t_node			*head;
+	t_node			*tail;
 	int				size;
 }					t_stack;
 
 
 /* argurments checker*/
-void	ft_arg_check(int argc, char **argv);
+void	ft_arg_init(int argc, char **argv);
 void	ft_arg_checker(int argc, char **argv, int index);
 void	ft_arg_checker_split(char **argv);
 
@@ -45,18 +49,25 @@ char	**ft_split_wc(char const *s, char c, int *wc);
 
 /* error & free management*/
 void	ft_eq(char *msg);
-void	*ft_free_tab(char **tab);
-void	ft_free(void);
+void	ft_free_tab(char **tab);
+void	ft_free(t_stack stack);
 
 /* arguments parser*/
 t_stack	*ft_arg_parser(int argc, char **argv);
 
+/* sorting*/
+void	ft_push_swap(t_stack *stack_a);
+void	ft_tiny_sort(t_stack *stack_a);
+void	ft_baby_sort(t_stack *stack_a);
+void	ft_bigboi_sort(t_stack *stack_a);
+
+
 /* double linked list utils*/
-t_dlist	*ft_dlst_last(t_dlist *lst);
-t_dlist	*ft_dlst_first(t_dlist *lst);
-void	ft_dlst_clear(t_dlist **lst);
-t_dlist	*ft_dlst_new(int data);
-void	ft_dlst_add_back(t_dlist **lst, t_dlist *new);
-void	ft_dlst_add_front(t_dlist **lst, t_dlist *new);
+t_node	*ft_dlst_last(t_node *lst);
+t_node	*ft_dlst_first(t_node *lst);
+void	ft_dlst_clear(t_node **lst);
+t_node	*ft_dlst_new(int data);
+void	ft_dlst_add_back(t_node **lst, t_node *new);
+void	ft_dlst_add_front(t_node **lst, t_node *new);
 
 #endif

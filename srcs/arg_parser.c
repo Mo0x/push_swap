@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:36 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 18:34:07 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:13:56 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static t_stack	*ft_parse(char **argv, int starting)
 {
 	t_stack	*ret;
-	t_dlist	*tmp;
+	t_node	*tmp;
 	int		i;
 
 	i = starting + 1;
