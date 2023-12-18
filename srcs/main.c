@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 20:58:15 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:02:16 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	ft_arg_init(argc, argv);
 	stack_a = ft_arg_parser(argc, argv);
-	//ft_push_swap(stack_a);
+	ft_push_swap(stack_a);
 	//ft_print_res(ret);
 	//ft_free(stack_a);
 	//return (0);
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	//tmp check list
 
 	
-	int i = 1;
+	/*int i = 1;
 	t_node *tmp = stack_a->head;
 	while (tmp)
 	{
@@ -35,9 +35,8 @@ int main(int argc, char **argv)
 			i++;
 			tmp = tmp->next;
 	}
-	ft_printf(1, "%d\n", ft_average(stack_a));
-	ft_printf(1, "%d\n", ft_closest(ft_average(stack_a), stack_a));
+
 	ft_dlst_clear(&(stack_a->head));
-	free(stack_a);
+	free(stack_a);*/
 	return (0);
 }

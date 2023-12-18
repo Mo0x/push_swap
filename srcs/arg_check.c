@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 19:41:42 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:52:04 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_strdigit(char *str)
 	i = -1;
 	if (!str)
 		return (0);
-	if (str[0] == '-' || str[0] == '+')
+	if ((str[0] == '-' || str[0] == '+') && (ft_isdigit(str[i + 1])))
 		i++;
 	while (str[++i])
 	{

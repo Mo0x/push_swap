@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 14:40:08 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:46:47 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	ft_tiny_sort(t_stack *stack_a);
 void	ft_baby_sort(t_stack *stack_a);
 void	ft_bigboi_sort(t_stack *stack_a);
 void	ft_quick_sort(t_stack *stack_a, int min, int max);
-int	ft_average(t_stack *stack); /*to delete later*/
-int	ft_closest(int n, t_stack *stack);
+t_stack	*ft_quick_sort_init(t_stack *stack_a);
+void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
 
 /* stack double linked list utils*/
 t_node	*ft_dlst_last(t_node *lst);
@@ -72,9 +72,10 @@ void	ft_dlst_clear(t_node **lst);
 t_node	*ft_dlst_new(int data);
 void	ft_dlst_add_back(t_node **lst, t_node *new);
 void	ft_dlst_add_front(t_node **lst, t_node *new);
-t_stack	*stack_dup(t_stack *stack);
+t_stack	*ft_stack_dup(t_stack *stack);
 t_node	*ft_select_node(t_stack *stack, int index);
 int		ft_give_value(t_stack *stack, int index);
 void	ft_swap_nodes(t_node *a, t_node *b);
+t_node	*ft_get_node(t_stack *stack, int value);
 
 #endif

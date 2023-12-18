@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 14:38:03 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:41:21 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,11 +140,11 @@ void	ft_swap_nodes(t_node *a, t_node *b)
 	free(a->data);
 	a->data = b->data;
 	b->data = tmp;
-	a->data->index = index_b;
-	b->data->index = index_a;
+	a->data->index = index_a;
+	b->data->index = index_b;
 }
 
-t_stack	*stack_dup(t_stack *stack)
+t_stack	*ft_stack_dup(t_stack *stack)
 {
 	t_stack	*ret;
 	t_node	*iterator;
@@ -157,12 +157,13 @@ t_stack	*stack_dup(t_stack *stack)
 	ret->size = 1;
 	ft_copy_data(stack->head->data, ret->head->data);
 	iterator = stack->head;
+	iterator = iterator->next;
 	while (iterator)
 	{
 		tmp = ft_dlst_new(stack->head->data->num);
 		ft_copy_data(iterator->data, tmp->data);
 		ft_dlst_add_back(&ret->head, tmp);
-		ret->size + 1;
+		ret->size += 1;
 		iterator = iterator->next;
 	}
 	return (ret);
@@ -184,4 +185,18 @@ int		ft_give_value(t_stack *stack, int index)
 
 	ret = (ft_select_node(stack, index))->data->num;
 	return (ret);
+}
+
+t_node	*ft_get_node(t_stack *stack, int value)
+{
+	t_node	*ret;
+
+	ret = stack->head;
+	while (ret)
+	{
+		if (ret->data->num == value)
+			return (ret);
+		ret = ret->next;
+	}
+	return (NULL);
 }

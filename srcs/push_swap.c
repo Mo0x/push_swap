@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 13:34:50 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:47:57 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,35 @@
 void	ft_bigboi_sort(t_stack *stack_a)
 {
 	t_stack	*secret_stack;
-	t_stack	*stack_b;
+	//t_stack	*stack_b;
 
 	secret_stack = ft_quick_sort_init(stack_a);
 	if (!secret_stack)
 		exit(1);
+	
 	ft_indexing(stack_a, secret_stack);
-	ft_layering(stack_a, stack_b);
-	ft_push_back(stack_a, stack_b);
+	/*ft_layering(stack_a, stack_b);
+	ft_push_back(stack_a, stack_b);*/
+
+	t_node *tmp = stack_a->head;
+	while (tmp)
+	{
+			ft_printf(1, "i = %d, s_i = %d :%d\n", tmp->data->index,tmp->data->s_index, tmp->data->num);
+			tmp = tmp->next;
+	}
+	ft_swap_nodes(ft_select_node(stack_a, 0), ft_select_node(stack_a, 1));
+
+	tmp = secret_stack->head;
+	ft_printf(1, "sorted : \n");
+	while (tmp)
+	{
+			ft_printf(1, "%d :%d\n", tmp->data->index, tmp->data->num);
+			tmp = tmp->next;
+	}
+	ft_dlst_clear(&(stack_a->head));
+	ft_dlst_clear(&(secret_stack->head));
+	free(secret_stack);
+	free(stack_a);
 }
 
 void	ft_push_swap(t_stack *stack_a)
