@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:14:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 21:00:58 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:38:14 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,23 @@ int	ft_closest(int n, t_stack *stack)
 	return (ret);
 }
 
-void	ft_quick_sort(t_stack *stack_a)
+void	ft_quick_sort(t_stack *stack, int low, int high)
 {
 	int	pivot;
-	int	i;
+	t_stack	secret_stack;
 
 	pivot = ft_average(stack_a);
 	i = 0;
 	pivot = i + 0;
 	(void)pivot;
+}
+t_stack *ft_quick_sort_init(stack_a)
+{
+	t_stack	*ret;
+
+	ret = ft_stack_dup(stack_a);
+	ft_quick_sort(ret, 0, ret->size - 1);
+	return (ret);
 }
 
 /* doc = https://www.programiz.com/dsa/quick-sort*/

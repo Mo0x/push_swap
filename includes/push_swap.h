@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 20:57:45 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:30:24 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_push_swap(t_stack *stack_a);
 void	ft_tiny_sort(t_stack *stack_a);
 void	ft_baby_sort(t_stack *stack_a);
 void	ft_bigboi_sort(t_stack *stack_a);
-void	ft_quick_sort(t_stack *stack_a);
+void	ft_quick_sort(t_stack *stack_a, int min, int max);
 int	ft_average(t_stack *stack); /*to delete later*/
 int	ft_closest(int n, t_stack *stack);
 
