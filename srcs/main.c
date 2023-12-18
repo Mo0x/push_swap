@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 15:02:16 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:49:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 			tmp = tmp->next;
 	}
 
-	ft_dlst_clear(&(stack_a->head));
+	ft_nodes_clear(&(stack_a->head));
 	free(stack_a);*/
 	return (0);
 }

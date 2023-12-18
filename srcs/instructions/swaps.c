@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swaps.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/18 16:23:17 by mgovinda          #+#    #+#             */
+/*   Updated: 2023/12/18 16:30:19 by mgovinda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+char	*ft_sa(t_stack *stack)
+{
+	ft_swap_nodes(ft_select_node(stack, 0), ft_select_node(stack, 1));
+	return ("sa");
+}
+
+char	*ft_sb(t_stack *stack)
+{
+	ft_sa(stack);
+	return("sb");
+}
+
+char	*ft_ss(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_sa(stack_a);
+	ft_sa(stack_b);
+	return ("ss");
+}

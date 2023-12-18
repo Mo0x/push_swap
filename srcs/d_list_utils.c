@@ -6,13 +6,30 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 15:41:21 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:49:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_dlst_last(t_node *lst)
+void	ft_node_del(t_stack *stack, t_node *to_del)
+{
+	if (!to_del || !(stack->head))
+		return ;
+	if (stack->head == to_del)
+	{
+		stack->head = to_del->next;
+		to_del->next->prev = NULL;
+	}
+	if (to_del->next != NULL)
+		to_del->next->prev = to_del->prev;
+	if (to_del->prev != NULL)
+		to_del->prev->next = to_del->next;
+	free(to_del->data);
+	free(to_del);
+}
+
+t_node	*ft_node_last(t_node *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -21,7 +38,7 @@ t_node	*ft_dlst_last(t_node *lst)
 	return (lst);
 }
 
-t_node *ft_dlst_first(t_node *lst)
+t_node *ft_node_first(t_node *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -30,7 +47,7 @@ t_node *ft_dlst_first(t_node *lst)
 	return (lst);
 }
 
-void	ft_dlst_clear(t_node **lst)
+void	ft_nodes_clear(t_node **lst)
 {
 	t_node	*current;
 
@@ -46,7 +63,7 @@ void	ft_dlst_clear(t_node **lst)
 	lst = NULL;
 }
 
-t_node	*ft_dlst_new(int content)
+t_node	*ft_node_new(int content)
 {
 	t_node	*ret;
 	t_data	*data;
@@ -68,7 +85,7 @@ t_node	*ft_dlst_new(int content)
 	return (ret);
 }
 
-void	ft_dlst_add_back(t_node **lst, t_node *new)
+void	ft_node_add_back(t_node **lst, t_node *new)
 {
 	t_node	*last;
 
@@ -81,14 +98,14 @@ void	ft_dlst_add_back(t_node **lst, t_node *new)
 	}
 	else
 	{
-		last = ft_dlst_last(*lst);
+		last = ft_node_last(*lst);
 		last->next = new;
 		new->prev = last;
 		new->data->index = new->prev->data->index + 1;
 	}
 }
 
-void	ft_dlst_add_front(t_node **lst, t_node *new)
+void	ft_node_add_front(t_node **lst, t_node *new)
 {
 	t_node *first;
 	
@@ -98,7 +115,7 @@ void	ft_dlst_add_front(t_node **lst, t_node *new)
 		*lst = new;
 	else
 	{
-		first = ft_dlst_first(*lst);
+		first = ft_node_first(*lst);
 		first->prev = new;
 		new->next = first;
 	} 
@@ -153,16 +170,16 @@ t_stack	*ft_stack_dup(t_stack *stack)
 	ret = malloc(sizeof(t_stack));
 	if (!ret)
 		return (NULL);
-	ret->head = ft_dlst_new(stack->head->data->num);
+	ret->head = ft_node_new(stack->head->data->num);
 	ret->size = 1;
 	ft_copy_data(stack->head->data, ret->head->data);
 	iterator = stack->head;
 	iterator = iterator->next;
 	while (iterator)
 	{
-		tmp = ft_dlst_new(stack->head->data->num);
+		tmp = ft_node_new(stack->head->data->num);
 		ft_copy_data(iterator->data, tmp->data);
-		ft_dlst_add_back(&ret->head, tmp);
+		ft_node_add_back(&ret->head, tmp);
 		ret->size += 1;
 		iterator = iterator->next;
 	}

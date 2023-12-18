@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:36 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 13:46:08 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:48:58 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ static t_stack	*ft_parse(char **argv, int starting)
 	ret = malloc(sizeof(t_stack));
 	if (!ret)
 		ft_eq("Error malloc");
-	ret->head = ft_dlst_new(ft_atoi(argv[starting]));
+	ret->head = ft_node_new(ft_atoi(argv[starting]));
 	ret->size = 1;
 	while (argv[i])
 	{
-		tmp = ft_dlst_new(ft_atoi(argv[i++]));
-		ft_dlst_add_back(&ret->head, tmp);
+		tmp = ft_node_new(ft_atoi(argv[i++]));
+		ft_node_add_back(&ret->head, tmp);
 		ret->size += 1;
 	}
-	ret->tail = ft_dlst_last(ret->head);
+	ret->tail = ft_node_last(ret->head);
 	return (ret);
 }
 

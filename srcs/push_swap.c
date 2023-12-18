@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 15:47:57 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:53:16 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_bigboi_sort(t_stack *stack_a)
 {
 	t_stack	*secret_stack;
 	//t_stack	*stack_b;
-
 	secret_stack = ft_quick_sort_init(stack_a);
 	if (!secret_stack)
 		exit(1);
@@ -31,17 +30,17 @@ void	ft_bigboi_sort(t_stack *stack_a)
 			ft_printf(1, "i = %d, s_i = %d :%d\n", tmp->data->index,tmp->data->s_index, tmp->data->num);
 			tmp = tmp->next;
 	}
-	ft_swap_nodes(ft_select_node(stack_a, 0), ft_select_node(stack_a, 1));
+	ft_node_del(stack_a, ft_select_node(stack_a, 4));
 
-	tmp = secret_stack->head;
+	tmp = stack_a->head;
 	ft_printf(1, "sorted : \n");
 	while (tmp)
 	{
 			ft_printf(1, "%d :%d\n", tmp->data->index, tmp->data->num);
 			tmp = tmp->next;
 	}
-	ft_dlst_clear(&(stack_a->head));
-	ft_dlst_clear(&(secret_stack->head));
+	ft_nodes_clear(&(stack_a->head));
+	ft_nodes_clear(&(secret_stack->head));
 	free(secret_stack);
 	free(stack_a);
 }
