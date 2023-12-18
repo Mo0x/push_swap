@@ -6,11 +6,20 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 16:49:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:36:35 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ft_fix_index(t_node *to_fix)
+{
+	while (to_fix)
+	{
+		to_fix->data->index -= 1;
+		to_fix = to_fix->next; 
+	}
+}
 
 void	ft_node_del(t_stack *stack, t_node *to_del)
 {
@@ -22,7 +31,10 @@ void	ft_node_del(t_stack *stack, t_node *to_del)
 		to_del->next->prev = NULL;
 	}
 	if (to_del->next != NULL)
+	{
 		to_del->next->prev = to_del->prev;
+		ft_fix_index(to_del->next);
+	}
 	if (to_del->prev != NULL)
 		to_del->prev->next = to_del->next;
 	free(to_del->data);
@@ -105,34 +117,33 @@ void	ft_node_add_back(t_node **lst, t_node *new)
 	}
 }
 
-void	ft_node_add_front(t_node **lst, t_node *new)
+void	ft_node_add_front(t_stack *lst, t_node *new)
 {
 	t_node *first;
+	t_node	*fixer;
 	
 	if (!new)
 		return ;
-	if (!(*lst))
-		*lst = new;
+	if (!(lst->head))
+	{
+		lst->head = new;
+		new->data->index = 0;
+	}
 	else
 	{
-		first = ft_node_first(*lst);
+		first = ft_node_first(lst->head);
 		first->prev = new;
 		new->next = first;
+		new->data->index = 0;
+		fixer = new->next;
+		while (fixer)
+		{
+			fixer->data->index += 1;
+			fixer = fixer->next;
+		}
+		lst->head = new;
 	} 
 }
-/*t_node *ft_node_dup(t_node *node)
-{
-	t_node	*ret;
-
-	ret = malloc(sizeof(t_node));
-	ret->num = node->num;
-	ret->index = node->index;
-	ret->cost = node->cost;
-	ret->layer = node->layer;
-	ret->next = ;
-	ret->prev = NULL;
-	return (ret);
-}*/
 
 void	ft_copy_data(t_data *og, t_data *copy)
 {
@@ -141,6 +152,25 @@ void	ft_copy_data(t_data *og, t_data *copy)
 	copy->cost = og->cost;
 	copy->layer = og->layer;
 }
+
+t_node *ft_node_dup(t_node *node)
+{
+	t_node	*ret;
+	t_data	*data;
+
+	ret = malloc(sizeof(t_node));
+	if (!ret)
+		ft_eq("Error malloc");
+	data = malloc(sizeof(t_data));
+	if (!ret)
+		ft_eq("Error malloc");
+	ft_copy_data(node->data, data);
+	ret->next = NULL;
+	ret->prev = NULL;
+	return (ret);
+}
+
+
 
 void	ft_swap_nodes(t_node *a, t_node *b)
 {

@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 16:53:16 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:22:07 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ void	ft_bigboi_sort(t_stack *stack_a)
 			ft_printf(1, "i = %d, s_i = %d :%d\n", tmp->data->index,tmp->data->s_index, tmp->data->num);
 			tmp = tmp->next;
 	}
-	ft_node_del(stack_a, ft_select_node(stack_a, 4));
-
+	t_node *new_node = ft_node_new(404);
+	ft_node_add_front(stack_a, new_node);
 	tmp = stack_a->head;
-	ft_printf(1, "sorted : \n");
 	while (tmp)
 	{
 			ft_printf(1, "%d :%d\n", tmp->data->index, tmp->data->num);
