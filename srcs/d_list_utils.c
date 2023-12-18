@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 13:52:48 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:27:16 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,11 @@ void	ft_copy_data(t_data *og, t_data *copy)
 void	ft_swap_nodes(t_node *a, t_node *b)
 {
 	t_data *tmp;
+	int		index_a;
+	int		index_b;
 
+	index_a = a->data->index;
+	index_b = b->data->index;
 	tmp = malloc(sizeof(t_data));
 	if (!tmp)
 		exit(-1);
@@ -136,6 +140,8 @@ void	ft_swap_nodes(t_node *a, t_node *b)
 	free(a->data);
 	a->data = b->data;
 	b->data = tmp;
+	a->data->index = index_b;
+	b->data->index = index_a;
 }
 
 t_stack	*stack_dup(t_stack *stack)
@@ -160,4 +166,14 @@ t_stack	*stack_dup(t_stack *stack)
 		iterator = iterator->next;
 	}
 	return (ret);
+}
+
+int	ft_give_value(t_stack *stack, int index)
+{
+	t_node	*tmp;
+
+	tmp = stack->head;
+	while (tmp->data->index != index)
+		tmp = tmp->next;
+	return (tmp->data->num);
 }

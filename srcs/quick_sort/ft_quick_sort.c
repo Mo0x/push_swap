@@ -6,13 +6,13 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:14:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 13:38:14 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:18:36 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_abs(int n)
+/*int	ft_abs(int n)
 {
 	if (n < 0)
 		return (-n);
@@ -58,17 +58,50 @@ int	ft_closest(int n, t_stack *stack)
 		tmp = tmp->next;
 	}
 	return (ret);
+}*/
+for (int j = low; j < high; j++) 
+{
+    if (array[j] <= pivot) 
+	{
+      i++;
+      swap(&array[i], &array[j]);
+	}
+}
+
+int		ft_partition(t_stack *stack, int low, int high)
+{
+	int		pivot;
+	int		i;
+	int		j;
+	t_node	*a;
+	t_node	*b;
+
+	a = stack->head;
+	while (high != a->data->index)
+		a = a->next;
+	pivot = a->data->num;
+	i = (low - 1);
+	j = low;
+	b = stack->head;
+	while (low != tmp->data->index)
+		b = tmp->next;
+	while (j < high)
+	{
+		if ()
+		j++;
+	}
 }
 
 void	ft_quick_sort(t_stack *stack, int low, int high)
 {
 	int	pivot;
-	t_stack	secret_stack;
 
-	pivot = ft_average(stack_a);
-	i = 0;
-	pivot = i + 0;
-	(void)pivot;
+	if (low < high)
+	{
+		pivot = partition(stack, low, high);
+		ft_quick_sort(stack, low, pivot -1);
+		ft_quick_sort(stack, pivot + 1, high);
+	}
 }
 t_stack *ft_quick_sort_init(stack_a)
 {
