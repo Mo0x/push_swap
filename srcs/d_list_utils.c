@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 14:27:16 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:38:03 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,12 +168,20 @@ t_stack	*stack_dup(t_stack *stack)
 	return (ret);
 }
 
-int	ft_give_value(t_stack *stack, int index)
+t_node	*ft_select_node(t_stack *stack, int index)
 {
 	t_node	*tmp;
 
 	tmp = stack->head;
 	while (tmp->data->index != index)
 		tmp = tmp->next;
-	return (tmp->data->num);
+	return (tmp);
+}
+
+int		ft_give_value(t_stack *stack, int index)
+{
+	int	ret;
+
+	ret = (ft_select_node(stack, index))->data->num;
+	return (ret);
 }

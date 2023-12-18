@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:14:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 14:18:36 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:42:42 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,37 +59,27 @@ int	ft_closest(int n, t_stack *stack)
 	}
 	return (ret);
 }*/
-for (int j = low; j < high; j++) 
-{
-    if (array[j] <= pivot) 
-	{
-      i++;
-      swap(&array[i], &array[j]);
-	}
-}
 
 int		ft_partition(t_stack *stack, int low, int high)
 {
 	int		pivot;
 	int		i;
 	int		j;
-	t_node	*a;
-	t_node	*b;
 
-	a = stack->head;
-	while (high != a->data->index)
-		a = a->next;
-	pivot = a->data->num;
-	i = (low - 1);
+	pivot = ft_give_value(stack, high);
+	i = low - 1;
 	j = low;
-	b = stack->head;
-	while (low != tmp->data->index)
-		b = tmp->next;
 	while (j < high)
 	{
-		if ()
+		if (ft_give_value(stack, j) <= pivot)
+		{
+			i++;
+			ft_swap_nodes(ft_select_node(stack, i), ft_select_node(stack, j));
+		}
 		j++;
 	}
+	ft_swap_nodes(ft_select_node(stack, i + 1), ft_select_node(stack, high));
+	return (i + 1);
 }
 
 void	ft_quick_sort(t_stack *stack, int low, int high)

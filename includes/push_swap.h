@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 14:27:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:40:08 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ t_node	*ft_dlst_new(int data);
 void	ft_dlst_add_back(t_node **lst, t_node *new);
 void	ft_dlst_add_front(t_node **lst, t_node *new);
 t_stack	*stack_dup(t_stack *stack);
+t_node	*ft_select_node(t_stack *stack, int index);
 int		ft_give_value(t_stack *stack, int index);
+void	ft_swap_nodes(t_node *a, t_node *b);
 
 #endif
