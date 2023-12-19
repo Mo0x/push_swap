@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:45:23 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 18:34:07 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:09:31 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	**ft_split_wc(char const *s, char c, int *wc)
 		{
 			ret[i] = ft_strdup_word(s, c);
 			if (!ret[i])
-				return (ft_free_tab(ret));
+				return (NULL);
 			while (*s && *s != c)
 				s++;
 		}

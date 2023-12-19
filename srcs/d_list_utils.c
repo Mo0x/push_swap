@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 17:36:35 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:01:44 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,11 +162,12 @@ t_node *ft_node_dup(t_node *node)
 	if (!ret)
 		ft_eq("Error malloc");
 	data = malloc(sizeof(t_data));
-	if (!ret)
+	if (!data)
 		ft_eq("Error malloc");
 	ft_copy_data(node->data, data);
 	ret->next = NULL;
 	ret->prev = NULL;
+	ret->data = data;
 	return (ret);
 }
 

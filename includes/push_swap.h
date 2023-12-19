@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 17:31:31 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:32:11 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,19 @@ t_stack	*ft_arg_parser(int argc, char **argv);
 /* sorting*/
 void	ft_push_swap(t_stack *stack_a);
 void	ft_tiny_sort(t_stack *stack_a);
-void	ft_baby_sort(t_stack *stack_a);
-void	ft_bigboi_sort(t_stack *stack_a);
+void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b);
+void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_quick_sort(t_stack *stack_a, int min, int max);
 t_stack	*ft_quick_sort_init(t_stack *stack_a);
 void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
+
+/*instructions*/
+
+char	*ft_sa(t_stack *stack);
+char	*ft_sb(t_stack *stack);
+char	*ft_ss(t_stack *stack_a, t_stack *stack_b);
+char	*ft_pa(t_stack *stack_a, t_stack *stack_b);
+char	*ft_pb(t_stack *stack_a, t_stack *stack_b);
 
 /* stack double linked list utils*/
 void	ft_node_del(t_stack *stack, t_node *to_del);
