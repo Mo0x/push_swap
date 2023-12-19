@@ -6,14 +6,15 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 17:29:05 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:36:49 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-https://medium.com/@ulysse.gerkens/push-swap-in-less-than-4200-operations-c292f034f6c0
+https://medium.com/@ulysse.gerkens/push-swap-in-less-than-4200-operations-c292f034f6c0 = 3700;
+https://medium.com/@julien-ctx/push-swap-an-easy-and-efficient-algorithm-to-sort-numbers-4b7049c2639a = secret stack;
 */
 
 
