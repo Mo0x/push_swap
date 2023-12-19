@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:30:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 17:39:09 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:57:47 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ char	*ft_pb(t_stack *stack_a, t_stack *stack_b)
 	copy = ft_node_dup(stack_a->head);
 	ft_node_add_front(stack_b, copy);
 	ft_node_del(stack_a, stack_a->head);
+	stack_b->tail = ft_node_last(stack_b->head);
 	return ("pb");
 }

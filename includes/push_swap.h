@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 16:22:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:54:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ char	*ft_ss(t_stack *stack_a, t_stack *stack_b);
 char	*ft_pa(t_stack *stack_a, t_stack *stack_b);
 char	*ft_pb(t_stack *stack_a, t_stack *stack_b);
 char	*ft_ra(t_stack *stack_a);
+char	*ft_rb(t_stack *stack_b);
+char	*ft_rr(t_stack *stack_a, t_stack *stack_b);
+char	*ft_rra(t_stack *stack);
+char	*ft_rrb(t_stack *stack);
+char	*ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 /* stack double linked list utils*/
 void	ft_node_del(t_stack *stack, t_node *to_del);

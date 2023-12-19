@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotates.c                                          :+:      :+:    :+:   */
+/*   reverses.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 16:09:44 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 16:40:51 by mgovinda         ###   ########.fr       */
+/*   Created: 2023/12/19 16:42:04 by mgovinda          #+#    #+#             */
+/*   Updated: 2023/12/19 16:54:10 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_ra(t_stack *stack_a)
+char	*ft_rra(t_stack *stack)
 {
 	t_node *tmp;
 
-	tmp = stack_a->head;
-	stack_a->head = tmp->next;
-	tmp->next->prev = NULL;
-	stack_a->tail->next = tmp;
-	tmp->prev = stack_a->tail;
-	tmp->next = NULL;
-	stack_a->tail = tmp;
-	stack_a->head->data->index = 0;
-	tmp = stack_a->head->next;
+	tmp = stack->tail;
+	stack->tail = tmp->prev;
+	tmp->prev->next = NULL;
+	stack->head->prev = tmp;
+	tmp->prev = NULL;
+	tmp->next = stack->head;
+	stack->head = tmp;
+	tmp->data->index = 0;
+	tmp = tmp->next;
 	while (tmp)
 	{
 		tmp->data->index = tmp->prev->data->index + 1;
 		tmp = tmp->next;
 	}
-	return ("ra");
+	return ("rra");
 }
 
-char	*ft_rb(t_stack *stack_b)
+char	*ft_rrb(t_stack *stack)
 {
-	ft_ra(stack_b);
-	return ("rb");
+	ft_rra(stack);
+	return ("rrb");
 }
 
-char	*ft_rr(t_stack *stack_a, t_stack *stack_b)
+char	*ft_rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_ra(stack_a);
-	ft_rb(stack_b);
-	return ("rr");
+	ft_rra(stack_a);
+	ft_rra(stack_b);
+	return ("rrr");
 }
