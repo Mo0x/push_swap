@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:42:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 16:54:10 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:08:33 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,22 @@ char	*ft_rra(t_stack *stack)
 {
 	t_node *tmp;
 
-	tmp = stack->tail;
-	stack->tail = tmp->prev;
-	tmp->prev->next = NULL;
-	stack->head->prev = tmp;
-	tmp->prev = NULL;
-	tmp->next = stack->head;
-	stack->head = tmp;
-	tmp->data->index = 0;
-	tmp = tmp->next;
-	while (tmp)
+	if(stack->head)
 	{
-		tmp->data->index = tmp->prev->data->index + 1;
+		tmp = stack->tail;
+		stack->tail = tmp->prev;
+		tmp->prev->next = NULL;
+		stack->head->prev = tmp;
+		tmp->prev = NULL;
+		tmp->next = stack->head;
+		stack->head = tmp;
+		tmp->data->index = 0;
 		tmp = tmp->next;
+		while (tmp)
+		{
+			tmp->data->index = tmp->prev->data->index + 1;
+			tmp = tmp->next;
+		}
 	}
 	return ("rra");
 }

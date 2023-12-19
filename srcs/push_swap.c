@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 16:55:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:14:56 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		ft_printf(1, "%d :%d\n", tmp_b->data->index, tmp_b->data->num);
 		tmp_b = tmp_b->next;
 	}
+	ft_printf(1, "stack a size = %d, stack b_size = %d", stack_a->size, stack_b->size);
 	ft_nodes_clear(&(stack_a->head));
 	ft_nodes_clear(&(secret_stack->head));
 	free(secret_stack);
