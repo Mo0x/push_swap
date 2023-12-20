@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 16:01:44 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:20:59 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_fix_index(t_node *to_fix)
 	while (to_fix)
 	{
 		to_fix->data->index -= 1;
-		to_fix = to_fix->next; 
+		to_fix = to_fix->next;
 	}
 }
 

@@ -6,13 +6,13 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:30:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/17 20:30:25 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:22:03 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_eq(char *msg)
+void	ft_eq(char *msg)
 {
 	ft_printf(2, "%s", msg);
 	exit(1);

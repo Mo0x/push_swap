@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 16:54:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:13:09 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_quick_sort(t_stack *stack_a, int min, int max);
 t_stack	*ft_quick_sort_init(t_stack *stack_a);
 void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
+
+/*Layer*/
+void	ft_layering_init(t_stack *stack_a);
 
 /*instructions*/
 

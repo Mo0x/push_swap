@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:42:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 17:08:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:44:58 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_rra(t_stack *stack)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
-	if(stack->head)
+	if (stack->head)
 	{
 		tmp = stack->tail;
 		stack->tail = tmp->prev;
