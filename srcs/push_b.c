@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/21 17:19:45 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:30:04 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_pricing(t_stack *stack)
 			node->data->cost = 2;
 		else
 		{
-			if (node->data->index < stack->size / 2)
+			if (node->data->index < (stack->size / 2) + 1)
 			{
 				node->data->cost = node->data->index + 1;
 			}
