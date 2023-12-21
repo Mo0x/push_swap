@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/20 18:28:52 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:01:42 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_average(t_stack *stack)
 		tmp = tmp->next;
 	}
 	ret = sum / stack->size;
-	return (int)(ret);
+	return ((int)ret);
 }
 
 int	ft_determine_layers(t_stack *stack)

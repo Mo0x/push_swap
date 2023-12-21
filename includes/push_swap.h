@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/20 17:13:09 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:14:41 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
 
 /*Layer*/
 void	ft_layering_init(t_stack *stack_a);
+
+/*Cost*/
+void	ft_push_back(t_stack *stack_a, t_stack *stack_b);
 
 /*instructions*/
 
