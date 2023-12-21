@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/21 17:14:41 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:24:12 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../libft/includes/libft.h"
 
-typedef struct		s_data
+typedef struct s_data
 {
 	int				num;
 	int				index;
@@ -24,14 +24,14 @@ typedef struct		s_data
 	int				s_index;
 }					t_data;
 
-typedef	struct		s_node
+typedef	struct s_node
 {
 	struct s_node	*next;
 	struct s_node	*prev;
 	t_data			*data;
 }					t_node;
 
-typedef struct 		s_stack
+typedef struct s_stack
 {
 	t_node			*head;
 	t_node			*tail;

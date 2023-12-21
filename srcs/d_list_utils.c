@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/20 16:20:59 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:25:57 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_node	*ft_node_new(int content)
 	ret->data->num = content;
 	ret->data->index = 0;
 	ret->data->cost = -1;
-	ret->data->layer = -1;
+	ret->data->layer = 0;
 	ret->data->s_index = -1;
 	return (ret);
 }
