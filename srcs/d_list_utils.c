@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/21 18:25:57 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:32:04 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ void	ft_copy_data(t_data *og, t_data *copy)
 	copy->index = og->index;
 	copy->cost = og->cost;
 	copy->layer = og->layer;
+	copy->s_index = og->s_index;
 }
 
 t_node *ft_node_dup(t_node *node)
