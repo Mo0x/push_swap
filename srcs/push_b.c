@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/22 17:13:27 by mgovinda         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:25:57 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,16 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b)
 	tmp = stack_a->head;
 	while (tmp)
 	{
-		if (tmp->data->cost < cost && tmp->data->layer < layer)
+		if (tmp->data->layer < layer)	
+			layer = tmp->data->layer;
+		tmp = tmp->next;
+	}
+	tmp = stack_a->head;
+	while (tmp)
+	{
+		if (tmp->data->cost < cost && layer == tmp->data->layer)
 		{
 			cost = tmp->data->cost;
-			layer = tmp->data->layer;
 			to_push = tmp->data->index;
 		}
 		tmp = tmp->next;
