@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_pricing(t_stack *stack)
+void	ft_pricing_to_B(t_stack *stack)
 {
 	t_node *node;
 
@@ -34,6 +34,22 @@ void	ft_pricing(t_stack *stack)
 	}
 }
 
+void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*node;
+	int	tmp;
+
+	node = stack_b->head;
+	while (node)
+	{
+		tmp = 0;
+		if (node->data->index == 0)
+			node->data->cost = cost + (stack_a->size - node->data->s_index);
+		{
+			tmp = stack_size - node->size - node->data->s_index;
+		}
+	}
+}
 
 void	ft_push_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 {

@@ -59,12 +59,14 @@ void	ft_push_swap(t_stack *stack_a)
 {
 	t_stack	*stack_b;
 
+	stack_a->max_size = stack_a->size;
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
 		ft_eq("Error malloc");
 	stack_b->size = 0;
 	stack_b->head = NULL;
 	stack_b->tail = NULL;
+	stack_b->max_size = stack_a->size;
 	if (stack_a->size == 3)
 		ft_tiny_sort(stack_a);
 	else if (stack_a->size == 5)

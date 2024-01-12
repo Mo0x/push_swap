@@ -36,6 +36,7 @@ typedef struct s_stack
 	t_node			*head;
 	t_node			*tail;
 	int				size;
+	int				max_size;
 }					t_stack;
 
 
@@ -70,7 +71,7 @@ void	ft_layering_init(t_stack *stack_a);
 
 /*Cost*/
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b);
-
+void	ft_princing_to_b(t_stack *stack);
 /*instructions*/
 
 char	*ft_sa(t_stack *stack);

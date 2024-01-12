@@ -250,3 +250,15 @@ t_node	*ft_get_node(t_stack *stack, int value)
 	}
 	return (NULL);
 }
+
+int	ft_is_sorted(t_stack *stack)
+{
+	t_node	*node;
+	
+	node = stack->head;
+	node = node->next;
+	while (node)
+		if (node->data->num < node->prev->data->num)
+			return (0);
+	return (1)
+}
