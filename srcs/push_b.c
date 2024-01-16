@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/16 14:36:32 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:10:18 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 	t_node	*tmp;
 	int		close_up;
 	int		close_down;
+	int		mid;
 
 	node = stack_b->head;
 	ft_pricing_to_b(stack_b);
+	mid = stack_a->size / 2;
 	while (node)
 	{
 		tmp = stack_a->head;
@@ -62,7 +64,9 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 		close_up = ft_s_index_to_index(stack_a, close_up);
 		close_down = ft_s_index_to_index(stack_a, close_down);
 		if (close_up > -1 && close_down > -1)
-			node->data->cost = node->data->cost + ()
+			node->data->cost = node->data->cost + (close_down);
+		else if (close_up > -1)
+		else if (close_down > -1)
 		node = node->next;
 	}
 }
