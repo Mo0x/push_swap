@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/22 17:03:20 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:15:04 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 	ft_indexing(stack_a, secret_stack);
 	//if (stack_a size > 99)
 		ft_layering_init(stack_a);
-	//ft_push_back(stack_a, stack_b);
+	ft_push_back(stack_a, stack_b);
 	
 	t_node *tmp = stack_a->head;
 	while (tmp)
