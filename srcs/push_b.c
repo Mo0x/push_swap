@@ -6,15 +6,15 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/22 17:42:16 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:36:32 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pricing_to_B(t_stack *stack)
+void	ft_pricing_to_b(t_stack *stack)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = stack->head;
 	while (node)
@@ -33,21 +33,37 @@ void	ft_pricing_to_B(t_stack *stack)
 		node = node->next;
 	}
 }
+// perhaps use LONG_MAX instead of INT_MAX
+// need to integrate rr and rrr later keeping it simple for now
+
 
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*node;
-	int	tmp;
+	t_node	*tmp;
+	int		close_up;
+	int		close_down;
 
 	node = stack_b->head;
+	ft_pricing_to_b(stack_b);
 	while (node)
 	{
-		tmp = 0;
-		if (node->data->index == 0)
-			node->data->cost = cost + (stack_a->size - node->data->s_index);
+		tmp = stack_a->head;
+		close_up = stack_a->size + 1;
+		close_down = 0;
+		while (tmp)
 		{
-			tmp = stack_size - node->size - node->data->s_index;
+			if ((tmp->data->s_index > node->data->s_index) && (tmp->data->s_index < close_up))
+				close_up = tmp->data->s_index;
+			if ((tmp->data->s_index < node->data->s_index) && (tmp->data->s_index > close_down))
+				close_down = tmp->data->s_index;
+			tmp = tmp->next;
 		}
+		close_up = ft_s_index_to_index(stack_a, close_up);
+		close_down = ft_s_index_to_index(stack_a, close_down);
+		if (close_up > -1 && close_down > -1)
+			node->data->cost = node->data->cost + ()
+		node = node->next;
 	}
 }
 
@@ -70,7 +86,7 @@ void	ft_push_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 	else
 	{
 		if (to_push->data->index < (stack_a->size / 2) + 1)
-		{ 
+		{
 			i = to_push->data->index;
 			while (i-- > 0)
 				ft_putendl_fd(ft_ra(stack_a), 1);
@@ -97,7 +113,7 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b)
 	tmp = stack_a->head;
 	while (tmp)
 	{
-		if (tmp->data->layer < layer)	
+		if (tmp->data->layer < layer)
 			layer = tmp->data->layer;
 		tmp = tmp->next;
 	}
@@ -119,8 +135,8 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 {
 	while (stack_a->head)
 	{
-		ft_pricing(stack_a);
+		ft_pricing_to_b(stack_a);
 		ft_push_cheapest(stack_a, stack_b);
 	}
-	ft_pricing(stack_b);
+	ft_pricing_to_a(stack_a, stack_b);
 }

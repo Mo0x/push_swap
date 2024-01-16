@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/22 17:39:43 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:32:56 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,5 +260,18 @@ int	ft_is_sorted(t_stack *stack)
 	while (node)
 		if (node->data->num < node->prev->data->num)
 			return (0);
-	return (1)
+	return (1);
+}
+
+void	ft_s_index_to_index(t_stack *stack, int s_index)
+{
+	t_node	*tmp;
+
+	tmp = stack->head;
+	while (tmp)
+	{
+		if (tmp->data->s_index == s_index)
+			return (tmp->data->index);
+	}
+	return (-1);
 }
