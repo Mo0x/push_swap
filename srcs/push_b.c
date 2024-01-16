@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/16 16:18:27 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:37:29 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,13 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 				node->data->cost += close_up - mid;
 			else
 				node->data->cost += close_up - mid;
+		}
+		else if (close_down > -1)
+		{
+			if (close_down > mid)
+				node->data->cost += close_down - mid;
+			else
+				node->data->cost += close_down;
 		}
 		node = node->next;
 	}
