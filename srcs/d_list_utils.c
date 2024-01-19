@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/16 16:14:02 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:55:24 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,6 +272,7 @@ int	ft_s_index_to_index(t_stack *stack, int s_index)
 	{
 		if (tmp->data->s_index == s_index)
 			return (tmp->data->index);
+		tmp = tmp->next;
 	}
 	return (-1);
 }
