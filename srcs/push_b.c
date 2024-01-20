@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/19 18:04:02 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/20 17:09:21 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,10 +140,27 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b)
 	tmp = ft_select_node(stack_a, to_push);
 	ft_push_node(stack_a, stack_b, tmp);
 }
-/*void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
-{
 
-}*/
+/* put cheapest node to on top of b, put close up on top of a, close down bottom of a then push the node from b to a*/
+void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
+{
+	int	cost;
+	t_node	*tmp;
+
+	cost = 2147483647;
+	tmp = stack_b->head;
+	while (tmp)
+	{
+		if (tmp->data->cost < cost)
+		{
+			cost = tmp->data->cost;
+			to_push = tmp->data->index;
+		}
+		tmp = tmp->next;
+	}
+	tmp = ft_select_node(stack_b, to_push);
+	ft_push_node(stack_a, stack_b, tmp);
+}
 
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 {
@@ -152,7 +169,7 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 		ft_pricing_to_b(stack_a);
 		ft_push_cheapest(stack_a, stack_b);
 	}
-		//ft_pricing_to_a(stack_a, stack_b);
+	ft_pricing_to_a(stack_a, stack_b);
 	/*while (stack_b->head)
 	{
 		ft_pricing_to_a(stack_a, stack_b);
