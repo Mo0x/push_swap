@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/21 18:24:22 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:40:09 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,7 @@ void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 		if (to_push->data->index < (stack_a->size / 2) + 1)
 		{
 			i = to_push->data->index;
-			while (i--> 0)
+			while (i-- > 0)
 				ft_putendl_fd(ft_rb(stack_b), 1);
 		}
 		else
@@ -259,15 +259,20 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 {
-	while (stack_a->size > 3)
+	while (stack_a->head)
 	{
 		ft_pricing_to_b(stack_a);
 		ft_push_cheapest(stack_a, stack_b);
 	}
-	ft_tiny_sort(stack_a);
-	while (stack_b->head)
+	ft_pricing_to_a(stack_a, stack_b);
+	ft_pushback_cheapest(stack_a, stack_b);
+	ft_pricing_to_a(stack_a, stack_b);
+	ft_pushback_cheapest(stack_a, stack_b);
+	ft_pricing_to_a(stack_a, stack_b);
+	ft_pushback_cheapest(stack_a, stack_b);
+	/*while (stack_b->head)
 	{
 		ft_pricing_to_a(stack_a, stack_b);
 		ft_pushback_cheapest(stack_a, stack_b);
-	}
+	}*/
 }

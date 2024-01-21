@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/19 18:05:34 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:44:58 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*secret_stack;
 
-	ft_printf(2, "================================DEBUG================================");
 	secret_stack = ft_quick_sort_init(stack_a);
 	if (!secret_stack)
 		exit(1);
