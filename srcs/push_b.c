@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/20 18:13:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:57:19 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 			if (close_up > (stack_a->size / 2) + 1)
 				b->data->cost += close_up - (stack_a->size / 2);
 			else
-				b->data->cost += close_down;
+				b->data->cost += close_up;
 		}
 		else if (close_down != -1)
 		{
@@ -78,7 +78,7 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_stack *stack_b, t_node *node)
+void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 {
 	t_node	*a;
 
@@ -87,10 +87,10 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_stack *stack
 	*close_down = -1;
 	while (a)
 	{
-		if ((a->data->s_index > node->data->s_index) && (a->data->s_index < close_up))
-			close_up = a->data->s_index;
-		if ((a->data->s_index < node->data->s_index) && (a->data->s_index < close_up))
-			close_down = a->data->s_index;
+		if ((a->data->s_index > node->data->s_index) && (a->data->s_index < *close_up))
+			*close_up = a->data->s_index;
+		if ((a->data->s_index < node->data->s_index) && (a->data->s_index < *close_up))
+			*close_down = a->data->s_index;
 		a = a->next;
 	}
 }
@@ -131,43 +131,55 @@ void	ft_push_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 	}
 }
 
-void	ft_rotate_a(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
+void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 {
 	int		close_up;
 	int		close_down;
-	t_node	*a;
+	int		i;
 
-	ft_closest(&close_up, &close_down, t_stack *stack_a, t_stack *stack_b, to_push);
-	a = stack_a->head;
-	while (a)
-	{
+	ft_closest(&close_up, &close_down, stack_a, to_push);
 	if (close_up != -1)
+	{
+		if (close_up > (stack_a->size / 2) + 1)
 		{
-			if (close_up > (stack_a->size / 2) + 1)
-				b->data->cost += close_up - (stack_a->size / 2);
-			else
-				b->data->cost += close_down;
+			i = close_up - (stack_a->size / 2);
+			while (i-- > 0)
+				ft_putendl_fd(ft_rra(stack_a), 1);
 		}
-		else if (close_down != -1)
+		else
 		{
-			if (close_down > (stack_a->size / 2) + 1)
-				b->data->cost += (stack_a->size - close_down);
-			else
-				b->data->cost += (close_down + 1);
+			i = close_up;
+			while (i-- > 0)
+				ft_putendl_fd(ft_ra(stack_a), 1);
+		}
+	}
+	else if (close_down != -1)
+	{
+		if (close_down > (stack_a->size / 2) + 1)
+		{
+			i = stack_a->size - close_down;
+			while (i-- > 0)
+				ft_putendl_fd(ft_rra(stack_a), 1);
+		}
+		else
+		{
+			i = close_down + 1;
+			while (i-- > 0)
+				ft_putendl_fd(ft_ra(stack_a), 1);
 		}
 	}
 }
 
 void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 {
-	int i;
+	int	i;
 
-	ft_rotate_a(stack_a, stack_b, to_push);
+	ft_rotate_a(stack_a, to_push);
 	if (to_push->data->index == 0)
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	else if (to_push->data->index == 1)
 	{
-		ft_putendl_fd((ft_sb(stack_b), 1));
+		ft_putendl_fd(ft_sb(stack_b), 1);
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	}
 	else if (to_push->data->index == stack_a->size - 1)
@@ -226,8 +238,9 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b)
 /* put cheapest node to on top of b, put close up on top of a, close down bottom of a then push the node from b to a*/
 void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 {
-	int	cost;
+	int		cost;
 	t_node	*tmp;
+	int		to_push;
 
 	cost = 2147483647;
 	tmp = stack_b->head;
