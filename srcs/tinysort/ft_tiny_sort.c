@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:11:51 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/21 18:11:54 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:23:20 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b)
 	(void)stack_b;
 }
 
-t_node *biggest_node(t_stack *stack)
+t_node	*biggest_node(t_stack *stack)
 {
 	int		bigger;
 	t_node	*tmp;
@@ -29,13 +29,16 @@ t_node *biggest_node(t_stack *stack)
 	if (stack == NULL)
 		return (NULL);
 	tmp = stack->head;
-	highest = INT_MIN;
+	bigger = INT_MIN;
 	while (tmp)
 	{
 		if (tmp->data->num > bigger)
+		{	bigger = tmp->data->num;
 			ret = tmp;
+		}
 		tmp = tmp->next;
 	}
+	return (ret);
 }
 
 void	ft_tiny_sort(t_stack *stack_a)
@@ -47,6 +50,7 @@ void	ft_tiny_sort(t_stack *stack_a)
 		ft_putendl_fd(ft_ra(stack_a), 1);
 	else if (stack_a->head->next == bigger)
 		ft_putendl_fd(ft_rra(stack_a), 1);
-	if(stack_a->head->data->num > stack_a->head->next->data->num)
+	if (stack_a->head->data->num >\
+	stack_a->head->next->data->num)
 		ft_putendl_fd(ft_sa(stack_a), 1);
-	}
+}
