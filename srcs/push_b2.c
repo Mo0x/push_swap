@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/23 17:59:31 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:24:57 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 	ft_closest(&close_up, &close_down, stack_a, to_push);
 	if ((close_up == -1 && close_down == -1) || close_up == 1)
 		return ;
-	if (close_up != -1)
+	else if (close_up != -1)
 	{
 		if (close_up > (stack_a->size / 2) + 1)
 		{
-			i = close_up - (stack_a->size / 2);
+			i = close_up - ((stack_a->size / 2) + 1);
 			while (i-- > 0)
 				ft_putendl_fd(ft_rra(stack_a), 1);
 		}
