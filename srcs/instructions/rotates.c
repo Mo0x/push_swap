@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:09:44 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 17:09:08 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:02:02 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_ra(t_stack *stack_a)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (stack_a->head)
 	{
