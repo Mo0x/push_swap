@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/23 16:56:53 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:59:31 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 	{
 		if ((a->data->s_index > node->data->s_index) && (a->data->s_index < *close_up))
 			*close_up = a->data->s_index;
-		if ((a->data->s_index < node->data->s_index) && (a->data->s_index < *close_up))
+		if ((a->data->s_index < node->data->s_index) && (a->data->s_index > *close_down))
 			*close_down = a->data->s_index;
 		a = a->next;
 	}
+	*close_up = ft_s_index_to_index(stack_a, *close_up);
+	*close_down = ft_s_index_to_index(stack_a, *close_down);
 }
 
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
@@ -36,7 +38,9 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 	int		i;
 
 	ft_closest(&close_up, &close_down, stack_a, to_push);
-	if (close_up != -1 && close_up != 1)
+	if ((close_up == -1 && close_down == -1) || close_up == 1)
+		return ;
+	if (close_up != -1)
 	{
 		if (close_up > (stack_a->size / 2) + 1)
 		{
@@ -86,7 +90,7 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 		{
 			if ((a->data->s_index > b->data->s_index) && (a->data->s_index < close_up))
 				close_up = a->data->s_index;
-			if ((a->data->s_index < b->data->s_index) && (a->data->s_index < close_up))
+			if ((a->data->s_index < b->data->s_index) && (a->data->s_index > close_down))
 				close_down = a->data->s_index;
 			a = a->next;
 		}
