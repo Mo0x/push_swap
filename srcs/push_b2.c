@@ -6,18 +6,19 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/23 18:24:57 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:42:54 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 {
 	t_node	*a;
 
 	a = stack_a->head;
-	*close_up = stack_a->size + 1;
+	*close_up = INT_MAX;
 	*close_down = -1;
 	while (a)
 	{
@@ -30,7 +31,7 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 	*close_up = ft_s_index_to_index(stack_a, *close_up);
 	*close_down = ft_s_index_to_index(stack_a, *close_down);
 }
-
+/* write this shit clean*/
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 {
 	int		close_up;
@@ -84,7 +85,7 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 	while (b)
 	{
 		a = stack_a->head;
-		close_up = stack_a->size + 1;
+		close_up = INT_MAX;
 		close_down = -1;
 		while (a)
 		{
