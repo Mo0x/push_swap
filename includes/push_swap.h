@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/16 16:14:13 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:38:35 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,13 @@ void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
 /*Layer*/
 void	ft_layering_init(t_stack *stack_a);
 
-/*Cost*/
+/*Cost & pushing nodes*/
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b);
 void	ft_princing_to_b(t_stack *stack);
-/*instructions*/
+void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b);
+void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b);
 
+/*instructions*/
 char	*ft_sa(t_stack *stack);
 char	*ft_sb(t_stack *stack);
 char	*ft_ss(t_stack *stack_a, t_stack *stack_b);

@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/21 18:40:09 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:35:40 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_pricing_to_b(t_stack *stack)
 }
 /* add or remove the  + 1*/
 
-void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
+/*void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*b;
 	t_node	*a;
@@ -76,9 +76,9 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 		}
 		b = b->next;
 	}
-}
+}*/
 
-void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
+/*void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 {
 	t_node	*a;
 
@@ -93,7 +93,7 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 			*close_down = a->data->s_index;
 		a = a->next;
 	}
-}
+}*/
 
 /* for push node perhaps stock the return into a variable then optimize the path
 	also to gain line, put the push at the end and do not repeat it every time :)*/
@@ -131,7 +131,7 @@ void	ft_push_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 	}
 }
 
-void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
+/*void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 {
 	int		close_up;
 	int		close_down;
@@ -203,7 +203,7 @@ void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 		}
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	}
-}
+}*/
 
 void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b)
 {
@@ -236,7 +236,7 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b)
 }
 
 /* put cheapest node to on top of b, put close up on top of a, close down bottom of a then push the node from b to a*/
-void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
+/*void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 {
 	int		cost;
 	t_node	*tmp;
@@ -255,7 +255,7 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 	}
 	tmp = ft_select_node(stack_b, to_push);
 	ft_pushback_node(stack_a, stack_b, tmp);
-}
+}*/
 
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 {
