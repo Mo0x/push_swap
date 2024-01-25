@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 17:45:51 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:25:32 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	ft_nodes_clear(t_node **lst);
 t_node	*ft_node_new(int data);
 void	ft_node_add_back(t_node **lst, t_node *new);
 void	ft_node_add_front(t_stack *lst, t_node *new);
+void	ft_copy_data(t_data *og, t_data *copy);
 t_stack	*ft_stack_dup(t_stack *stack);
 t_node	*ft_select_node(t_stack *stack, int index);
 int		ft_give_value(t_stack *stack, int index);
