@@ -6,20 +6,20 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 17:57:16 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:08:43 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_end_rotate(t_stack *stack_a)
+/*static void	ft_end_rotate(t_stack *stack_a)
 {
 	while (!ft_is_sorted(stack_a))
 	{
 		ft_printf(2,"is_sorted ? %d\n", ft_is_sorted(stack_a));
 		ft_putendl_fd(ft_rra(stack_a), 1);
 	}
-}
+}*/
 
 void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 {
@@ -46,7 +46,7 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		tmp2 = tmp2->next;
 	}
 	ft_push_back(stack_a, stack_b);
-	ft_end_rotate(stack_a);
+	//ft_end_rotate(stack_a);
 	tmp = stack_a->head;
 	while (tmp)
 	{
