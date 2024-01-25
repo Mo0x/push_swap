@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/23 18:42:54 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:20:01 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 	*close_up = ft_s_index_to_index(stack_a, *close_up);
 	*close_down = ft_s_index_to_index(stack_a, *close_down);
 }
+
 /* write this shit clean*/
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 {
@@ -39,7 +40,8 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 	int		i;
 
 	ft_closest(&close_up, &close_down, stack_a, to_push);
-	if ((close_up == -1 && close_down == -1) || close_up == 1)
+	ft_printf(2, "up : %d down : %d\n", close_up, close_down);
+	if ((close_up == -1 && close_down == -1) || close_up == 0)
 		return ;
 	else if (close_up != -1)
 	{
