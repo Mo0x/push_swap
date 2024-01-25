@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:26:40 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/19 17:55:24 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:56:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,8 +258,11 @@ int	ft_is_sorted(t_stack *stack)
 	node = stack->head;
 	node = node->next;
 	while (node)
+	{
 		if (node->data->num < node->prev->data->num)
 			return (0);
+		node = node->next;
+	}
 	return (1);
 }
 

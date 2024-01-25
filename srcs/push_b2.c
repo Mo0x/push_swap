@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 17:20:01 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:39:48 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
 	*close_down = ft_s_index_to_index(stack_a, *close_down);
 }
 
-/* write this shit clean*/
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 {
 	int		close_up;
@@ -45,9 +44,9 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 		return ;
 	else if (close_up != -1)
 	{
-		if (close_up > (stack_a->size / 2) + 1)
+		if (close_up > (stack_a->size / 2))
 		{
-			i = close_up - ((stack_a->size / 2) + 1);
+			i = close_up - ((stack_a->size / 2));
 			while (i-- > 0)
 				ft_putendl_fd(ft_rra(stack_a), 1);
 		}
@@ -60,7 +59,7 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 	}
 	else if (close_down != -1)
 	{
-		if (close_down > (stack_a->size / 2) + 1)
+		if (close_down > (stack_a->size / 2))
 		{
 			i = stack_a->size - close_down;
 			while (i-- > 0)
