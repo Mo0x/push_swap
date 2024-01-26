@@ -6,46 +6,52 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 17:59:39 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:23:28 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, t_node *node)
+void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, int node_s)
 {
 	t_node	*a;
+	int		s_index;
 
 	a = stack_a->head;
 	*close_up = INT_MAX;
 	*close_down = -1;
+	ft_printf(1, "up : %d down :%d\n", *close_up, *close_down);
 	while (a)
 	{
-		if ((a->data->s_index > node->data->s_index) && (a->data->s_index < *close_up))
-			*close_up = a->data->s_index;
-		if ((a->data->s_index < node->data->s_index) && (a->data->s_index > *close_down))
-			*close_down = a->data->s_index;
+		s_index = a->data->s_index;
+		if ((s_index > node_s) && (s_index < *close_up))
+			*close_up = s_index;
+		if ((s_index < node_s) && (s_index > *close_down))
+			*close_down = s_index;
 		a = a->next;
 	}
+	ft_printf(1, "up : %d down :%d\n", *close_up, *close_down);
 	*close_up = ft_s_index_to_index(stack_a, *close_up);
 	*close_down = ft_s_index_to_index(stack_a, *close_down);
+	ft_printf(1, "up : %d down :%d\n", *close_up, *close_down);
 }
-
+// still pbs here :'(
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 {
 	int		close_up;
 	int		close_down;
 	int		i;
 
-	ft_closest(&close_up, &close_down, stack_a, to_push);
+	ft_closest(&close_up, &close_down, stack_a, to_push->data->s_index);
+	ft_printf(1, "up : %d down :%d\n", close_up, close_down);
 	if ((close_up == -1 && close_down == -1) || close_up == 0)
 		return ;
 	else if (close_up != -1)
 	{
 		if (close_up > (stack_a->size / 2))
 		{
-			i = close_up - ((stack_a->size / 2));
+			i = close_up - ((stack_a->size / 2)) - 2;
 			while (i-- > 0)
 				ft_putendl_fd(ft_rra(stack_a), 1);
 		}
@@ -60,7 +66,7 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 	{
 		if (close_down > (stack_a->size / 2))
 		{
-			i = stack_a->size - close_down;
+			i = stack_a->size - close_down; //+ 1 ?
 			while (i-- > 0)
 				ft_putendl_fd(ft_rra(stack_a), 1);
 		}
@@ -129,14 +135,14 @@ void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 		ft_putendl_fd(ft_sb(stack_b), 1);
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	}
-	else if (to_push->data->index == stack_a->size - 1)
+	else if (to_push->data->index == stack_b->size - 1)
 	{
-		ft_putendl_fd(ft_rrb(stack_a), 1);
+		ft_putendl_fd(ft_rrb(stack_b), 1);
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	}
 	else
 	{
-		if (to_push->data->index < (stack_a->size / 2) + 1)
+		if (to_push->data->index < (stack_b->size / 2) + 1)
 		{
 			i = to_push->data->index;
 			while (i-- > 0)
@@ -171,5 +177,6 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_b, to_push);
+	ft_printf(2,"index :%d    sindex :%d    num: %d\n", tmp->data->index, tmp->data->s_index, tmp->data->num);
 	ft_pushback_node(stack_a, stack_b, tmp);
 }

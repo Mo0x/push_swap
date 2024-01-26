@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 18:32:22 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/26 19:03:18 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		exit(1);
 	ft_indexing(stack_a, secret_stack);
 	//if (stack_a size > 99)
-		ft_layering_init(stack_a);
-	ft_push_back(stack_a, stack_b);
+		ft_layering_init(stack_a);	
 	
-	t_node *tmp = stack_a->head;
+	ft_push_back(stack_a, stack_b);
+t_node *tmp = stack_a->head;
 	while (tmp)
 	{
 		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
@@ -45,7 +45,8 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
 		tmp2 = tmp2->next;
 	}
-	ft_push_back(stack_a, stack_b);
+	sleep(10);
+
 	ft_end_rotate(stack_a);
 	tmp = stack_a->head;
 	while (tmp)
