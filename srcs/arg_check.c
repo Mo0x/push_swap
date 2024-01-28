@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 16:00:50 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:05:16 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_strdigit(char *str)
 	return (1);
 }
 
-void ft_arg_checker(int argc, char **argv, int index)
+void	ft_arg_checker(int argc, char **argv, int index)
 {
 	int	j;
 	int	i;
@@ -41,7 +41,7 @@ void ft_arg_checker(int argc, char **argv, int index)
 		if (ft_strdigit(argv[i]) == 0 || !argv[i][0] || ft_atoll(argv[i]) > INT_MAX \
 			|| ft_atoll(argv[i]) < INT_MIN)
 		{
-			ft_printf(2, "Error\n");
+			ft_printf(2, "Errorlol\n");
 			exit(-1);
 		}
 	}
