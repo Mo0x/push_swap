@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/26 19:03:18 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/28 20:37:05 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 static void	ft_end_rotate(t_stack *stack_a)
 {
 	while (!ft_is_sorted(stack_a))
-	{
-		ft_printf(2,"is_sorted ? %d\n", ft_is_sorted(stack_a));
 		ft_putendl_fd(ft_rra(stack_a), 1);
-	}
 }
 
 void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
@@ -33,7 +30,7 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		ft_layering_init(stack_a);	
 	
 	ft_push_back(stack_a, stack_b);
-t_node *tmp = stack_a->head;
+/*t_node *tmp = stack_a->head;
 	while (tmp)
 	{
 		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
@@ -44,11 +41,9 @@ t_node *tmp = stack_a->head;
 	{
 		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
 		tmp2 = tmp2->next;
-	}
-	sleep(10);
-
+	}*/
 	ft_end_rotate(stack_a);
-	tmp = stack_a->head;
+	/*tmp = stack_a->head;
 	while (tmp)
 	{
 		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
@@ -59,7 +54,7 @@ t_node *tmp = stack_a->head;
 	{
 		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
 		tmp2 = tmp2->next;
-	}
+	}*/
 	ft_nodes_clear(&(stack_a->head));
 	ft_nodes_clear(&(secret_stack->head));
 	free(secret_stack);
