@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/28 20:35:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:52:33 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,10 @@ void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	else if (to_push->data->index == 1)
 	{
-		ft_putendl_fd(ft_sb(stack_b), 1);
+		ft_putendl_fd(ft_rb(stack_b), 1);
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
 	}
-	else if (to_push->data->index == stack_b->size - 1) //perhaps wrong
+	else if (to_push->data->index == stack_b->size - 1)
 	{
 		ft_putendl_fd(ft_rrb(stack_b), 1);
 		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
@@ -173,5 +173,6 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_b, to_push);
+	ft_printf(2, "cost selected index %d cost %d sindex %d num %d\n", tmp->data->index, tmp->data->cost, tmp->data->s_index, tmp->data->num);
 	ft_pushback_node(stack_a, stack_b, tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/28 20:36:26 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:37:53 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -307,7 +307,7 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 	{
 		ft_pricing_to_a(stack_a, stack_b);
 		ft_pushback_cheapest(stack_a, stack_b);
-		/*t_node 	*tmp = stack_a->head;
+		t_node 	*tmp = stack_a->head;
 	while (tmp)
 	{
 		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
@@ -319,6 +319,6 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b)
 	{
 		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
 		tmp2 = tmp2->next;
-	}*/
+	}
 	}
 }
