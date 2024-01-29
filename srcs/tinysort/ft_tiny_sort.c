@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:11:51 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 20:47:21 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:51:55 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b)
 	while (stack_a->size > 3)
 		ft_putendl_fd(ft_pb(stack_a, stack_b), 1);
 	ft_tiny_sort(stack_a);
-	while (stack_b)
+	while (stack_b->head)
 	{
 		ft_pricing_to_a(stack_a, stack_b);
 		ft_pushback_cheapest(stack_a, stack_b);
