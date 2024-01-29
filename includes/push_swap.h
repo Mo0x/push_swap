@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 20:17:36 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 21:42:11 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_data
 	int				s_index;
 }					t_data;
 
-typedef	struct s_node
+typedef struct s_node
 {
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -67,6 +67,7 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_quick_sort(t_stack *stack_a, int min, int max);
 t_stack	*ft_quick_sort_init(t_stack *stack_a);
 void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
+void	ft_end_rotate(t_stack *stack_a);
 
 /*Layer*/
 int		ft_layering_init(t_stack *stack_a);
@@ -77,6 +78,7 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int layered);
 void	ft_pricing_to_b(t_stack *stack);
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b);
 void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b);
+void	ft_rotate_a(t_stack *stack_a, t_node *to_push);
 
 /*instructions*/
 char	*ft_sa(t_stack *stack);
