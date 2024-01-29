@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 20:19:56 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:35:11 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,16 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
 		tmp2 = tmp2->next;
 	}*/
-	ft_nodes_clear(&(stack_a->head));
 	ft_nodes_clear(&(secret_stack->head));
 	free(secret_stack);
-	free(stack_a);
 }
 
 void	ft_push_swap(t_stack *stack_a)
 {
 	t_stack	*stack_b;
 
+	if (ft_is_sorted(stack_a))
+		return ;
 	stack_a->max_size = stack_a->size;
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
@@ -76,7 +76,7 @@ void	ft_push_swap(t_stack *stack_a)
 	stack_b->max_size = stack_a->size;
 	if (stack_a->max_size == 2)
 		ft_micro_sort(stack_a);
-	if (stack_a->max_size == 3)
+	else if (stack_a->max_size == 3)
 		ft_tiny_sort(stack_a);
 	else if (stack_a->max_size == 5)
 		ft_baby_sort(stack_a, stack_b);
