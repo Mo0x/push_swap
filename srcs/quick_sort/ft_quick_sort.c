@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:14:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/19 15:32:39 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:00:26 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_indexing(t_stack *stack_to_index, t_stack *ref)
 	}
 }
 
-int		ft_partition(t_stack *stack, int low, int high)
+int	ft_partition(t_stack *stack, int low, int high)
 {
 	int		pivot;
 	int		i;
@@ -59,6 +59,7 @@ void	ft_quick_sort(t_stack *stack, int low, int high)
 		ft_quick_sort(stack, pivot + 1, high);
 	}
 }
+
 t_stack *ft_quick_sort_init(t_stack *stack_a)
 {
 	t_stack	*ret;

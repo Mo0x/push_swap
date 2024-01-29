@@ -6,12 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/28 22:52:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:07:12 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, int node_s)
 {
@@ -160,12 +159,14 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 	int		cost;
 	t_node	*tmp;
 	int		to_push;
+	int		layer;
 
-	cost = 2147483647;
+	layer = ft_highest_layer(stack_b);
+	cost = INT_MAX;
 	tmp = stack_b->head;
 	while (tmp)
 	{
-		if (tmp->data->cost < cost)
+		if (tmp->data->cost < cost && layer == tmp->data->layer)
 		{
 			cost = tmp->data->cost;
 			to_push = tmp->data->index;
@@ -173,6 +174,6 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_b, to_push);
-	ft_printf(2, "cost selected index %d cost %d sindex %d num %d\n", tmp->data->index, tmp->data->cost, tmp->data->s_index, tmp->data->num);
+	//ft_printf(2, "cost selected index %d cost %d sindex %d num %d\n", tmp->data->index, tmp->data->cost, tmp->data->s_index, tmp->data->num);
 	ft_pushback_node(stack_a, stack_b, tmp);
 }

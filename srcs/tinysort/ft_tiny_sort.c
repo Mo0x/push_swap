@@ -6,12 +6,18 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:11:51 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/21 18:46:54 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:20:09 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
+
+void	ft_micro_sort(t_stack *stack)
+{
+	if (!ft_is_sorted(stack))
+		ft_putendl_fd(ft_sa(stack), 1);
+}
 
 void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b)
 {

@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 18:25:32 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:17:36 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
+# include <limits.h>
 
 typedef struct s_data
 {
@@ -58,6 +59,7 @@ void	ft_free(t_stack stack);
 t_stack	*ft_arg_parser(int argc, char **argv);
 
 /* sorting*/
+void	ft_micro_sort(t_stack *stack);
 void	ft_push_swap(t_stack *stack_a);
 void	ft_tiny_sort(t_stack *stack_a);
 void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b);
@@ -67,10 +69,11 @@ t_stack	*ft_quick_sort_init(t_stack *stack_a);
 void	ft_indexing(t_stack *stack_to_index, t_stack *ref);
 
 /*Layer*/
-void	ft_layering_init(t_stack *stack_a);
+int		ft_layering_init(t_stack *stack_a);
+int		ft_highest_layer(t_stack *stack);
 
 /*Cost & pushing nodes*/
-void	ft_push_back(t_stack *stack_a, t_stack *stack_b);
+void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int layered);
 void	ft_pricing_to_b(t_stack *stack);
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b);
 void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b);
