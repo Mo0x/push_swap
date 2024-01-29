@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 20:02:45 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/29 21:53:22 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,18 @@ int	ft_determine_layers(t_stack *stack)
 void	ft_layering(int layers, t_stack *stack)
 {
 	float	a;
+	int		i;
+	t_node	*tmp;
+
+	tmp = stack->head;
+	i = layers;
+	a = stack->max_size * (1 / layers);
+	
+}
+
+/*void	ft_layering(int layers, t_stack *stack)
+{
+	float	a;
 	float	b;
 	float	c;
 	t_node	*tmp;
@@ -120,7 +132,7 @@ void	ft_layering(int layers, t_stack *stack)
 		}
 		tmp = tmp->next;
 	}
-}
+}*/
 
 int	ft_layering_init(t_stack *stack)
 {
