@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 21:42:11 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:39:15 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	ft_free(t_stack stack);
 t_stack	*ft_arg_parser(int argc, char **argv);
 
 /* sorting*/
-void	ft_micro_sort(t_stack *stack);
-void	ft_push_swap(t_stack *stack_a);
-void	ft_tiny_sort(t_stack *stack_a);
-void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b);
-void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b);
+t_list	*ft_micro_sort(t_stack *stack);
+t_list	*ft_push_swap(t_stack *stack_a);
+t_list	*ft_tiny_sort(t_stack *stack_a);
+t_list	*ft_baby_sort(t_stack *stack_a, t_stack *stack_b);
+t_list	*ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_quick_sort(t_stack *stack_a, int min, int max);
 t_stack	*ft_quick_sort_init(t_stack *stack_a);
 void	ft_indexing(t_stack *stack_to_index, t_stack *ref);

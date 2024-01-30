@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/30 18:46:35 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:50:46 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_end_rotate(t_stack *stack_a)
 	ra = 0;
 	while (first->data->s_index != 0)
 		first = first->next;
-	if (first->data->index < stack_a->max_size)
+	if (first->data->index < stack_a->max_size  / 2)
 		ra = 1;
 	while (!ft_is_sorted(stack_a))
 	{
@@ -32,10 +32,11 @@ void	ft_end_rotate(t_stack *stack_a)
 	}
 }
 
-void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
+t_list	*ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*secret_stack;
 	int		is_layered;
+
 
 	secret_stack = ft_quick_sort_init(stack_a);
 	is_layered = 0;
@@ -43,20 +44,7 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 		exit(1);
 	ft_indexing(stack_a, secret_stack);
 	if (stack_a->max_size > 99)
-		is_layered = ft_layering_init(stack_a);
-	t_node *tmp = stack_a->head;
-	while (tmp)
-	{
-		ft_printf(1, "max size =%d  stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", stack_a->max_size , tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
-		tmp = tmp->next;
-	}
-	t_node *tmp2 = stack_b->head;
-	while (tmp2)
-	{
-		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
-		tmp2 = tmp2->next;
-	}
-	sleep(10);
+		is_layered = ft_layering_init(stack_a);	
 	ft_push_back(stack_a, stack_b, is_layered);
 
 	ft_end_rotate(stack_a);
@@ -76,12 +64,14 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
 	free(secret_stack);
 }
 
-void	ft_push_swap(t_stack *stack_a)
+t_list	*ft_push_swap(t_stack *stack_a)
 {
 	t_stack	*stack_b;
+	t_list	*ret;
 
 	if (ft_is_sorted(stack_a))
 		return ;
+	ret = ft_lstnew(NULL);
 	stack_a->max_size = stack_a->size;
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
@@ -91,13 +81,13 @@ void	ft_push_swap(t_stack *stack_a)
 	stack_b->tail = NULL;
 	stack_b->max_size = stack_a->size;
 	if (stack_a->max_size == 2)
-		ft_micro_sort(stack_a);
+		ret = ft_micro_sort(stack_a);
 	else if (stack_a->max_size == 3)
-		ft_tiny_sort(stack_a);
+		ret = ft_tiny_sort(stack_a);
 	else if (stack_a->max_size == 5)
-		ft_baby_sort(stack_a, stack_b);
+		ret = ft_baby_sort(stack_a, stack_b);
 	else
-		ft_bigboi_sort(stack_a, stack_b);
+		ret = ft_bigboi_sort(stack_a, stack_b);
 	ft_nodes_clear(&(stack_b->head));
 	free(stack_b);
 }

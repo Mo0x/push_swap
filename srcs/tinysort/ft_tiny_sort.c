@@ -6,27 +6,33 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:11:51 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 21:41:42 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:54:46 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_micro_sort(t_stack *stack)
+t_list	*ft_micro_sort(t_stack *stack)
 {
+	t_list	*ret;
+
 	if (!ft_is_sorted(stack))
-		ft_putendl_fd(ft_sa(stack), 1);
+			ret = ft_lstnew(ft_sa(stack));
+	return (ret);
 }
 
-void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b)
+t_list	*ft_baby_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*s;
+	t_list	*ret;
 
 	s = ft_quick_sort_init(stack_a);
 	ft_indexing(stack_a, s);
 	while (stack_a->size > 3)
-		ft_putendl_fd(ft_pb(stack_a, stack_b), 1);
-	ft_tiny_sort(stack_a);
+	{
+		ret = ft_lstnew(ft_pb(stack_a, stack_b));
+	}
+		ret = ft_tiny_sort(stack_a);
 	while (stack_b->head)
 	{
 		ft_rotate_a(stack_a, stack_b->head);
@@ -57,7 +63,7 @@ t_node	*biggest_node(t_stack *stack)
 	return (ret);
 }
 
-void	ft_tiny_sort(t_stack *stack_a)
+t_list	*ft_tiny_sort(t_stack *stack_a)
 {
 	t_node	*bigger;
 

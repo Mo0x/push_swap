@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 20:34:42 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:32:46 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ https://medium.com/@julien-ctx/push-swap-an-easy-and-efficient-algorithm-to-sort
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	//char	*ret;
+	t_list *ret;
 
 	ft_arg_init(argc, argv);
 	stack_a = ft_arg_parser(argc, argv);
-	ft_push_swap(stack_a);
+	ret = ft_push_swap(stack_a);
 	//ft_print_res(ret);
 	//ft_free(stack_a);
 	//return (0);
