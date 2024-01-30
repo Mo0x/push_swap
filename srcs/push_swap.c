@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/30 19:50:46 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:10:47 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_end_rotate(t_stack *stack_a)
 	}
 }
 
-t_list	*ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b)
+void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 {
 	t_stack	*secret_stack;
 	int		is_layered;
@@ -81,7 +81,7 @@ t_list	*ft_push_swap(t_stack *stack_a)
 	stack_b->tail = NULL;
 	stack_b->max_size = stack_a->size;
 	if (stack_a->max_size == 2)
-		ret = ft_micro_sort(stack_a);
+		ft_micro_sort(stack_a, &ret);
 	else if (stack_a->max_size == 3)
 		ret = ft_tiny_sort(stack_a);
 	else if (stack_a->max_size == 5)
