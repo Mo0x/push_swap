@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 21:53:22 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:08:09 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,11 @@ int	ft_average(t_stack *stack)
 
 int	ft_determine_layers(t_stack *stack)
 {
-	if (stack->size > 499)
+	if (stack->max_size > 499)
 		return (4);
-	else if (stack->size > 99)
+	else if (stack->max_size > 299)
+		return (3);
+	else if (stack->max_size > 99)
 		return (2);
 	else
 		return (0);
@@ -89,14 +91,28 @@ int	ft_determine_layers(t_stack *stack)
 
 void	ft_layering(int layers, t_stack *stack)
 {
-	float	a;
+	float	small;
+	float	big;
 	int		i;
 	t_node	*tmp;
 
+	ft_printf(2, "%d = layer\n", layers);
 	tmp = stack->head;
-	i = layers;
-	a = stack->max_size * (1 / layers);
-	
+	small = stack->max_size / layers;
+	while (tmp)
+	{
+		i = layers - 1;
+		while (i > 0)
+		{
+			big = small * i;
+			if (tmp->data->s_index > big && tmp->data->layer < i + 1)
+				tmp->data->layer = i + 1;
+			i--;
+		}
+		if (tmp->data->layer == 0)
+			tmp->data->layer = 1;
+		tmp = tmp->next;
+	}
 }
 
 /*void	ft_layering(int layers, t_stack *stack)
@@ -140,6 +156,6 @@ int	ft_layering_init(t_stack *stack)
 
 	layers_num = ft_determine_layers(stack);
 	if (layers_num)
-		ft_layering(4, stack);
+		ft_layering(layers_num, stack);
 	return (1);
 }
