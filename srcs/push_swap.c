@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 16:35:10 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:06:51 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	t_stack	*secret_stack;
 	int		is_layered;
 
-
 	secret_stack = ft_quick_sort_init(stack_a);
 	is_layered = 0;
 	if (!secret_stack)
@@ -46,7 +45,18 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	if (stack_a->max_size > 99)
 		is_layered = ft_layering_init(stack_a);	
 	ft_push_back(stack_a, stack_b, is_layered, ret);
-
+/*t_node *tmp = stack_a->head;
+	while (tmp)
+	{
+		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
+		tmp = tmp->next;
+	}
+t_node 	*tmp2 = stack_b->head;
+	while (tmp2)
+	{
+		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
+		tmp2 = tmp2->next;
+	}*/
 	ft_end_rotate(stack_a, ret);
 	/*tmp = stack_a->head;
 	while (tmp)
@@ -82,7 +92,7 @@ t_list	*ft_push_swap(t_stack *stack_a, t_list **ret)
 		ft_micro_sort(stack_a, ret);
 	else if (stack_a->max_size == 3)
 		ft_tiny_sort(stack_a, ret);
-	else if (stack_a->max_size == 5)
+	else if (stack_a->max_size < 6)
 		ft_baby_sort(stack_a, stack_b, ret);
 	else
 		ft_bigboi_sort(stack_a, stack_b, ret);

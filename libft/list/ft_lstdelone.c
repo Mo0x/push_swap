@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgovinda <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:38:35 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/10/26 16:51:59 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:21:56 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst && del)
 	{
-		del(lst->content);
 		free(lst);
+		lst = NULL;
 	}
 }

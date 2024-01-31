@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 17:10:13 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:00:09 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret)
 		{
 			i = stack_a->size - up;
 			while (i-- > 0)
-				ft_lstadd_back(ret, ft_lstnew((stack_a)));
+				ft_lstadd_back(ret, ft_lstnew(ft_rra(stack_a)));
 		}
 		else
 		{

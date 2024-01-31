@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 17:20:19 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:51:21 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ void	ft_free(t_stack stack);
 /* arguments parser*/
 t_stack	*ft_arg_parser(int argc, char **argv);
 
-/*lst print*/
+/*lst print and path opti*/
 void	ft_printlst(t_list *ret);
+void	ft_optimize(t_list *ret);
+void	ft_path_merge(t_list *ret);
+void	ft_path_purge(t_list *ret);
 
 /* sorting*/
 void	ft_micro_sort(t_stack *stack, t_list **ret);
