@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:37:04 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 16:26:06 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:16:49 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	stack_a = ft_arg_parser(argc, argv);
 	ret = ft_lstnew("init");
 	ft_push_swap(stack_a, &ret);
-	//ft_print_res(ret);
+	ft_printlst(ret);
 	//ft_free(stack_a);
 	//return (0);
 

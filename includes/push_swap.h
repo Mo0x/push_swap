@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 16:42:10 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:20:19 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	ft_free(t_stack stack);
 /* arguments parser*/
 t_stack	*ft_arg_parser(int argc, char **argv);
 
+/*lst print*/
+void	ft_printlst(t_list *ret);
+
 /* sorting*/
 void	ft_micro_sort(t_stack *stack, t_list **ret);
 t_list	*ft_push_swap(t_stack *stack_a, t_list **ret);
@@ -77,7 +80,7 @@ int		ft_highest_layer(t_stack *stack);
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int layered, t_list **ret);
 void	ft_pricing_to_b(t_stack *stack);
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b);
-void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b);
+void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret);
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret);
 
 /*instructions*/

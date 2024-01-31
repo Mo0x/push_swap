@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 16:39:40 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:10:13 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,22 +118,22 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 
 
 
-void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
+void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push, t_list **ret)
 {
 	int	i;
 
-	ft_rotate_a(stack_a, to_push);
+	ft_rotate_a(stack_a, to_push, ret);
 	if (to_push->data->index == 0)
-		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
+		ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	else if (to_push->data->index == 1)
 	{
-		ft_putendl_fd(ft_rb(stack_b), 1);
-		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
+		ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));
+		ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	}
 	else if (to_push->data->index == stack_b->size - 1)
 	{
-		ft_putendl_fd(ft_rrb(stack_b), 1);
-		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
+		ft_lstadd_back(ret, ft_lstnew(ft_rrb(stack_b)));
+		ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	}
 	else
 	{
@@ -141,20 +141,20 @@ void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push)
 		{
 			i = to_push->data->index;
 			while (i-- > 0)
-				ft_putendl_fd(ft_rb(stack_b), 1);
+				ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));
 		}
 		else
 		{
 			i = (stack_b->size - to_push->data->index);
 			while (i-- > 0)
-				ft_putendl_fd(ft_rrb(stack_b), 1);
+				ft_lstadd_back(ret, ft_lstnew(ft_rrb(stack_b)));
 		}
-		ft_putendl_fd(ft_pa(stack_a, stack_b), 1);
+		ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	}
 }
 
 
-void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
+void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 {
 	int		cost;
 	t_node	*tmp;
@@ -174,6 +174,5 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b)
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_b, to_push);
-	//ft_printf(2, "cost selected index %d cost %d sindex %d num %d\n", tmp->data->index, tmp->data->cost, tmp->data->s_index, tmp->data->num);
-	ft_pushback_node(stack_a, stack_b, tmp);
+	ft_pushback_node(stack_a, stack_b, tmp, ret);
 }
