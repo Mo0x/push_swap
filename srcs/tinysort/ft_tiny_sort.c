@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:11:51 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/30 20:17:38 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:42:29 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,23 @@ void	ft_micro_sort(t_stack *stack, t_list **ret)
 {
 	if (!ft_is_sorted(stack))
 			ft_lstadd_back(ret, ft_lstnew(ft_sa(stack)));
-	return (ret);
 }
 
 void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 {
 	t_stack	*s;
-	t_list	*ret;
 
 	s = ft_quick_sort_init(stack_a);
 	ft_indexing(stack_a, s);
 	while (stack_a->size > 3)
-		ft_lstadd_back(ret, ft_pb(stack_a, stack_b));
+		ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 	ft_tiny_sort(stack_a, ret);
 	while (stack_b->head)
 	{
-		ft_rotate_a(stack_a, stack_b->head);
+		ft_rotate_a(stack_a, stack_b->head, ret);
 		ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	}
-	ft_end_rotate(stack_a);
+	ft_end_rotate(stack_a, ret);
 }
 
 t_node	*biggest_node(t_stack *stack)

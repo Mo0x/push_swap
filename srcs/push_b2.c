@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 20:07:12 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:39:40 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, int node_s)
 	*close_down = ft_s_index_to_index(stack_a, *close_down);
 }
 
-void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
+void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret)
 {
 	int	up;
 	int	down;
@@ -48,13 +48,13 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 		{
 			i = stack_a->size - up;
 			while (i-- > 0)
-				ft_putendl_fd(ft_rra(stack_a), 1);
+				ft_lstadd_back(ret, ft_lstnew((stack_a)));
 		}
 		else
 		{
 			i = up;
 			while (i-- > 0)
-				ft_putendl_fd(ft_ra(stack_a), 1);
+				ft_lstadd_back(ret, ft_lstnew(ft_ra(stack_a)));
 		}
 	}
 	else if (down != -1)
@@ -63,13 +63,13 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push)
 		{
 			i = stack_a->size - (down + 1);
 			while (i-- > 0)
-				ft_putendl_fd(ft_rra(stack_a), 1);
+				ft_lstadd_back(ret, ft_lstnew(ft_rra(stack_a)));
 		}
 		else
 		{
 			i = down + 1;
 			while (i-- > 0)
-				ft_putendl_fd(ft_ra(stack_a), 1);
+				ft_lstadd_back(ret, ft_lstnew(ft_ra(stack_a)));
 		}
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/30 20:10:47 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:35:10 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_end_rotate(t_stack *stack_a)
+void	ft_end_rotate(t_stack *stack_a, t_list **ret)
 {
 	t_node	*first;
 	int		ra;
@@ -26,9 +26,9 @@ void	ft_end_rotate(t_stack *stack_a)
 	while (!ft_is_sorted(stack_a))
 	{
 		if (ra)
-			ft_putendl_fd(ft_ra(stack_a), 1);
+			ft_lstadd_back(ret, ft_lstnew(ft_ra(stack_a)));
 		else
-			ft_putendl_fd(ft_rra(stack_a), 1);
+			ft_lstadd_back(ret, ft_lstnew(ft_rra(stack_a)));
 	}
 }
 
@@ -45,9 +45,9 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	ft_indexing(stack_a, secret_stack);
 	if (stack_a->max_size > 99)
 		is_layered = ft_layering_init(stack_a);	
-	ft_push_back(stack_a, stack_b, is_layered);
+	ft_push_back(stack_a, stack_b, is_layered, ret);
 
-	ft_end_rotate(stack_a);
+	ft_end_rotate(stack_a, ret);
 	/*tmp = stack_a->head;
 	while (tmp)
 	{
@@ -64,14 +64,12 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	free(secret_stack);
 }
 
-t_list	*ft_push_swap(t_stack *stack_a)
+t_list	*ft_push_swap(t_stack *stack_a, t_list **ret)
 {
 	t_stack	*stack_b;
-	t_list	*ret;
 
 	if (ft_is_sorted(stack_a))
-		return ;
-	ret = ft_lstnew(NULL);
+		return (NULL);
 	stack_a->max_size = stack_a->size;
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
@@ -81,13 +79,14 @@ t_list	*ft_push_swap(t_stack *stack_a)
 	stack_b->tail = NULL;
 	stack_b->max_size = stack_a->size;
 	if (stack_a->max_size == 2)
-		ft_micro_sort(stack_a, &ret);
+		ft_micro_sort(stack_a, ret);
 	else if (stack_a->max_size == 3)
-		ret = ft_tiny_sort(stack_a);
+		ft_tiny_sort(stack_a, ret);
 	else if (stack_a->max_size == 5)
-		ret = ft_baby_sort(stack_a, stack_b);
+		ft_baby_sort(stack_a, stack_b, ret);
 	else
-		ret = ft_bigboi_sort(stack_a, stack_b);
+		ft_bigboi_sort(stack_a, stack_b, ret);
 	ft_nodes_clear(&(stack_b->head));
 	free(stack_b);
+	return (*ret);
 }
