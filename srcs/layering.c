@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/30 19:12:56 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:25:17 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,6 @@ int	ft_highest_layer(t_stack *stack)
 	return (layer);
 }
 
-/*int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	else
-		return (n);
-}*/
-
 int	ft_average(t_stack *stack)
 {
 	long long	sum;
@@ -85,6 +77,8 @@ int	ft_determine_layers(t_stack *stack)
 		return (5);
 	else if (stack->max_size > 99)
 		return (4);
+	else if (stack->max_size < 10)
+		return (2);
 	else
 		return (0);
 }
@@ -113,41 +107,6 @@ void	ft_layering(int layers, t_stack *stack)
 		tmp = tmp->next;
 	}
 }
-
-/*void	ft_layering(int layers, t_stack *stack)
-{
-	float	a;
-	float	b;
-	float	c;
-	t_node	*tmp;
-
-	tmp = stack->head;
-	a = stack->size * 0.25;
-	b = stack->size * 0.5;
-	c = stack->size * 0.75;
-	while (tmp)
-	{
-		if (layers == 2)
-		{
-			if (tmp->data->s_index < b)
-				tmp->data->layer = 1;
-			else
-				tmp->data->layer = 2;
-		}
-		if (layers == 4)
-		{
-			if (tmp->data->s_index > c)
-				tmp->data->layer = 4;
-			else if (tmp->data->s_index > b)
-				tmp->data->layer = 3;
-			else if (tmp->data->s_index > a)
-				tmp->data->layer = 2;
-			else
-				tmp->data->layer = 1;
-		}
-		tmp = tmp->next;
-	}
-}*/
 
 int	ft_layering_init(t_stack *stack)
 {
