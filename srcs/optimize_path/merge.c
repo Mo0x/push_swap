@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 19:27:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 19:56:38 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:36:14 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,6 @@ void	ft_path_merge(t_list *ret)
 
 void ft_optimize(t_list *ret)
 {
-	int i;
-
-	i = 0;
-	while (i < 10)
-	{	
 		ft_path_merge(ret);
 		ft_path_purge(ret);
-		i++;
-	}
 }
