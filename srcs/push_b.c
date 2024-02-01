@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 17:13:18 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:40:22 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	ft_push_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push, t_list **
 		}
 		ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 	}
+	if (to_push->data && stack_b->size > 1)
+		if (to_push->data->s_index % 2)
+			ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));
 }
 
 void	ft_push_cheapest_layered(t_stack *stack_a, t_stack *stack_b, t_list **ret)

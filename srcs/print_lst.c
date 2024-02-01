@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:18:17 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/31 19:53:21 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:34:54 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_printlst(t_list *ret)
 {
+	t_list *head;
 
+	head = ret;
 	ret = ret->next;
 	while (ret)
 	{
@@ -22,5 +24,5 @@ void	ft_printlst(t_list *ret)
 			ft_printf(1, "%s\n", ret->content);
 		ret = ret->next;
 	}
-	ft_lstclear(&ret, free);
+	ft_lstclear(&head, free);
 }
