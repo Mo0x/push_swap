@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/01 17:27:12 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:17:02 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_end_rotate(t_stack *stack_a, t_list **ret);
 /*Layer*/
 int		ft_layering_init(t_stack *stack_a);
 int		ft_highest_layer(t_stack *stack);
+int		ft_lowest_layer(t_stack *stack);
 
 /*Cost & pushing nodes*/
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int layered, t_list **ret);
@@ -85,6 +86,8 @@ void	ft_pricing_to_b(t_stack *stack);
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b);
 void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret);
 void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret);
+void	ft_push_node(t_stack *stack_a, t_stack *stack_b, \
+		t_node *to_push, t_list **ret);
 
 /*instructions*/
 char	*ft_sa(t_stack *stack);
