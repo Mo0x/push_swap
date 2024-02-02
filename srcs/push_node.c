@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:58:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/02 17:17:55 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:38:37 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_push_node(t_stack *stack_a, t_stack *stack_b, \
 		ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 	else if (to_push->data->index == 1)
 	{
-		ft_lstadd_back(ret, ft_lstnew(ft_sa(stack_a)));
+		ft_lstadd_back(ret, ft_lstnew(ft_ra(stack_a)));
 		ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 	}
 	else if (to_push->data->index == stack_a->size - 1)
