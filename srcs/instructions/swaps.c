@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:23:17 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/12/18 16:30:19 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:34:15 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_sa(t_stack *stack)
 {
+	if (stack->size < 2)
+		return ("sa");
 	ft_swap_nodes(ft_select_node(stack, 0), ft_select_node(stack, 1));
 	return ("sa");
 }

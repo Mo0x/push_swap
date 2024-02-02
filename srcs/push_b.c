@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/01 17:40:22 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:50:09 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ void	ft_push_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push, t_list **
 				ft_lstadd_back(ret, ft_lstnew(ft_rra(stack_a)));
 		}
 		ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
-	}
-	if (to_push->data && stack_b->size > 1)
-		if (to_push->data->s_index % 2)
-			ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));
+	}	
 }
 
 void	ft_push_cheapest_layered(t_stack *stack_a, t_stack *stack_b, t_list **ret)
@@ -128,6 +125,19 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int layered, t_list **ret)
 	while (stack_a->head)
 	{
 		ft_pricing_to_b(stack_a);
+		t_node *tmp = stack_a->head;
+	while (tmp)
+	{
+		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
+		tmp = tmp->next;
+	}
+	t_node *tmp2 = stack_b->head;
+	while (tmp2)
+	{
+		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
+		tmp2 = tmp2->next;
+	}
+	sleep(10);
 		if (layered)
 			ft_push_cheapest_layered(stack_a, stack_b, ret);
 		else
