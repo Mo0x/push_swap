@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/02 19:25:54 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:58:17 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void	ft_closest(int *close_up, int *close_down, t_stack *stack_a, int node_s)
 	*close_up = ft_s_index_to_index(stack_a, *close_up);
 	*close_down = ft_s_index_to_index(stack_a, *close_down);
 }
-// here he turn in the wrong sense
-void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret)
+/*void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret)
 {
 	int	up;
 	int	down;
@@ -73,9 +72,51 @@ void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret)
 				ft_lstadd_back(ret, ft_lstnew(ft_ra(stack_a)));
 		}
 	}
+}*/
+void	ft_prepare_b(t_stack *stack)
+{
+	t_node	*node;
+
+	node = stack->head;
+	while (node)
+	{
+		if (node->data->index < (stack->size / 2) + 1)
+			node->data->cost_b = (stack->size - node->data->index) * -1;
+		else
+			node->data->cost_b = node->data->index;
+		node = node->next;
+	}
 }
 
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*b;
+	int		up;
+	int		down;
+
+	b = stack_b->head;
+	ft_prepare_b(stack_b);
+	while (b)
+	{
+		ft_closest(&up, &down, stack_a, b->data->s_index);
+		if (up != -1)
+		{
+			if (up > (stack_a->size / 2) + 1)
+				b->data->cost_a = (up - (stack_a->size / 2)) * -1;
+			else
+				b->data->cost_a = up;
+		}
+		else if (down != -1)
+		{
+			if (down > (stack_a->size / 2) + 1)
+				b->data->cost_a = (stack_a->size - down) * -1;
+			else
+				b->data->cost_a = (down + 1);
+		}
+		b = b->next;
+	}
+}
+/*void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*b;
 	int		close_up;
@@ -102,9 +143,9 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 		}
 		b = b->next;
 	}
-}
+}*/
 
-void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push, t_list **ret)
+/*void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push, t_list **ret)
 {
 	int	i;
 
@@ -137,7 +178,7 @@ void	ft_pushback_node(t_stack *stack_a, t_stack *stack_b, t_node *to_push, t_lis
 		}
 		ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	}
-}
+}*/
 
 
 void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
@@ -152,33 +193,15 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	tmp = stack_b->head;
 	while (tmp)
 	{
-		if (tmp->data->cost < cost && layer == tmp->data->layer)
+		if (ft_abs(tmp->data->cost_a) + ft_abs(tmp->data->cost_b) \
+			< cost && layer == tmp->data->layer)
 		{
-			cost = tmp->data->cost;
+			cost = ft_abs(tmp->data->cost_a) + ft_abs(tmp->data->cost_b);
 			to_push = tmp->data->index;
 		}
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_b, to_push);
-
-
-	ft_printf(2, "selected === i %d     cost %d\n\n", tmp->data->index, tmp->data->cost);
-	/*t_node *deb = stack_a->head;
-	while (deb)
-	{
-		ft_printf(2, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", deb->data->index,deb->data->s_index, deb->data->num, deb->data->layer, deb->data->cost);
-		deb = deb->next;
-	}*/
-	t_node *deb2 = stack_b->head;
-	while (deb2)
-	{
-		ft_printf(2, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", deb2->data->index,deb2->data->s_index, deb2->data->num, deb2->data->layer, deb2->data->cost);
-		deb2 = deb2->next;
-	}
-
-
-
-
-
-	ft_pushback_node(stack_a, stack_b, tmp, ret);
+	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
+	ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 }

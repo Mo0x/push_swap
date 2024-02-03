@@ -6,11 +6,19 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:14:45 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/29 19:00:26 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:50:26 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_abs(int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	else
+		return (nb);
+}
 
 void	ft_indexing(t_stack *stack_to_index, t_stack *ref)
 {

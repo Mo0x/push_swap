@@ -6,36 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/02 19:38:32 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:48:50 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-int	ft_closest(int n, t_stack *stack)
-{
-	t_node	*tmp;
-	int		score;
-	int		best;
-	int		ret;
-
-	tmp = stack->head;
-	score = ft_abs(tmp->data->num - n);
-	best = score;
-	while (tmp)
-	{
-		score = ft_abs(tmp->data->num - n);
-		if (score < best)
-		{
-			best = score;
-			ret = tmp->data->index;
-		}
-		tmp = tmp->next;
-	}
-	return (ret);
-}
-*/
 
 int	ft_average(t_stack *stack)
 {

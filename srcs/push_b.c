@@ -6,13 +6,30 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/02 19:37:22 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:32:06 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 void	ft_pricing_to_b(t_stack *stack)
+{
+	t_node	*node;
+
+	node = stack->head;
+	while (node)
+	{
+		if (node->data->index < (stack->size / 2) + 1)
+			node->data->cost_a = (stack->size - node->data->index) * -1;
+		else
+			node->data->cost_a = node->data->index;
+		node = node->next;
+	}
+}
+
+
+/*void	ft_pricing_to_b(t_stack *stack)
 {
 	t_node	*node;
 
@@ -33,7 +50,7 @@ void	ft_pricing_to_b(t_stack *stack)
 		}
 		node = node->next;
 	}
-}
+}*/
 
 void	ft_push_cheapest_layered(t_stack *stack_a, \
 		t_stack *stack_b, t_list **ret)
@@ -43,20 +60,21 @@ void	ft_push_cheapest_layered(t_stack *stack_a, \
 	int		layer;
 	int		to_push;
 
-	cost = 2147483647;
+	cost = INT_MAX;
 	layer = ft_lowest_layer(stack_a);
 	tmp = stack_a->head;
 	while (tmp)
 	{
-		if (tmp->data->cost < cost && layer == tmp->data->layer)
+		if (ft_abs(tmp->data->cost_a) < cost && layer == tmp->data->layer)
 		{
-			cost = tmp->data->cost;
+			cost = tmp->data->cost_a;
 			to_push = tmp->data->index;
 		}
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_a, to_push);
-	ft_push_node(stack_a, stack_b, tmp, ret);
+	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
+	ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 	if (layer % 2)
 		ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));
 }
@@ -71,15 +89,16 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	tmp = stack_a->head;
 	while (tmp)
 	{
-		if (tmp->data->cost < cost)
+		if (ft_abs(tmp->data->cost_a) < cost)
 		{
-			cost = tmp->data->cost;
+			cost = tmp->data->cost_a;
 			to_push = tmp->data->index;
 		}
 		tmp = tmp->next;
 	}
 	tmp = ft_select_node(stack_a, to_push);
-	ft_push_node(stack_a, stack_b, tmp, ret);
+	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
+	ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
 }
 
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b, \

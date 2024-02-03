@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:17:28 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/25 18:19:48 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:43:55 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ t_node	*ft_node_new(int content)
 	ret->prev = NULL;
 	ret->data->num = content;
 	ret->data->index = 0;
-	ret->data->cost = -1;
+	ret->data->cost_a = 0;
+	ret->data->cost_b = 0;
 	ret->data->layer = 0;
 	ret->data->s_index = -1;
 	return (ret);
@@ -86,7 +87,8 @@ void	ft_copy_data(t_data *og, t_data *copy)
 {
 	copy->num = og->num;
 	copy->index = og->index;
-	copy->cost = og->cost;
+	copy->cost_a = og->cost_a;
+	copy->cost_b = og->cost_b;
 	copy->layer = og->layer;
 	copy->s_index = og->s_index;
 }

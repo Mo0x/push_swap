@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/02 17:17:02 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:30:39 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct s_data
 {
 	int				num;
 	int				index;
-	int				cost;
+	int				cost_a;
+	int				cost_b;
 	int				layer;
 	int				s_index;
 }					t_data;
@@ -79,14 +80,17 @@ void	ft_end_rotate(t_stack *stack_a, t_list **ret);
 int		ft_layering_init(t_stack *stack_a);
 int		ft_highest_layer(t_stack *stack);
 int		ft_lowest_layer(t_stack *stack);
+int		ft_abs(int nb);
+
 
 /*Cost & pushing nodes*/
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int layered, t_list **ret);
 void	ft_pricing_to_b(t_stack *stack);
 void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b);
 void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret);
-void	ft_rotate_a(t_stack *stack_a, t_node *to_push, t_list **ret);
-void	ft_push_node(t_stack *stack_a, t_stack *stack_b, \
+void	ft_rotate_a(t_stack *a, t_node *to_push, t_list **ret);
+void	ft_rotate_b(t_stack *b, t_node *to_push, t_list **ret);
+void	ft_prepare_stacks(t_stack *stack_a, t_stack *stack_b, \
 		t_node *to_push, t_list **ret);
 
 /*instructions*/
