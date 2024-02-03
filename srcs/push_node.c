@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:58:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/03 13:29:48 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:27:26 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ft_rotate_b(t_stack *b, t_node *to_push, t_list **ret)
 		}
 		else if (to_push->data->cost_b < 0)
 		{
-			ft_lstadd_back(ret, ft_lstnew(ft_rra(b)));
+			ft_lstadd_back(ret, ft_lstnew(ft_rrb(b)));
 			to_push->data->cost_b++;
 		}
 	}
