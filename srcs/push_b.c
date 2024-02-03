@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/03 13:32:06 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:30:51 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_pricing_to_b(t_stack *stack)
 	node = stack->head;
 	while (node)
 	{
-		if (node->data->index < (stack->size / 2) + 1)
+		if (node->data->index > (stack->size / 2) + 1)
 			node->data->cost_a = (stack->size - node->data->index) * -1;
 		else
 			node->data->cost_a = node->data->index;
@@ -75,8 +75,8 @@ void	ft_push_cheapest_layered(t_stack *stack_a, \
 	tmp = ft_select_node(stack_a, to_push);
 	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
 	ft_lstadd_back(ret, ft_lstnew(ft_pb(stack_a, stack_b)));
-	if (layer % 2)
-		ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));
+	/*if (layer % 2)
+		ft_lstadd_back(ret, ft_lstnew(ft_rb(stack_b)));*/
 }
 
 void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
@@ -120,13 +120,13 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, \
 	t_node *tmp = stack_a->head;
 	while (tmp)
 	{
-		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost);
+		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = a=%d b=%d\n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost_a, tmp->data->cost_b);
 		tmp = tmp->next;
 	}
 	t_node *tmp2 = stack_b->head;
 	while (tmp2)
 	{
-		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
+		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = a=%d b=%d\n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost_a, tmp2->data->cost_b);
 		tmp2 = tmp2->next;
 	}
 	ft_pushback_cheapest(stack_a, stack_b);
@@ -145,8 +145,21 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, \
 	sleep(10);*/
 	while (stack_b->head)
 	{
-		ft_pricing_to_a(stack_a, stack_b);
+		ft_pricing_to_a(stack_a, stack_b);	
 		ft_pushback_cheapest(stack_a, stack_b, ret);
+		/*t_node *tmp = stack_a->head;
+	while (tmp)
+	{
+		ft_printf(2, "stack a i = %d, s_i = %d :%d, layer = %d cost = a=%d b=%d\n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost_a, tmp->data->cost_b);
+		tmp = tmp->next;
+	}
+	t_node *tmp2 = stack_b->head;
+	while (tmp2)
+	{
+		ft_printf(2, "stack b i = %d, s_i = %d :%d, layer = %d cost = a=%d b=%d\n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost_a, tmp2->data->cost_b);
+		tmp2 = tmp2->next;
+	}
+	ft_printf(2,"\n NEXT\n ");*/
 		/*t_node 	*tmp = stack_a->head;
 	while (tmp)
 	{
