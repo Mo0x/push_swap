@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/04 15:58:26 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:04:34 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,8 +180,7 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 	}
 }*/
 
-
-/*void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
+void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 {
 	int		cost;
 	t_node	*tmp;
@@ -204,9 +203,9 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 	tmp = ft_select_node(stack_b, to_push);
 	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
 	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
-}*/
+}
 
-static int	ft_cost(t_node *tmp)
+/*static int	ft_cost(t_node *tmp)
 {
 	int	sum;
 	int	a;
@@ -250,4 +249,4 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	tmp = ft_select_node(stack_b, to_push);
 	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
 	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
-}
+}*/

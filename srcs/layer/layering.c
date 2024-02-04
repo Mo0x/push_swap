@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/03 12:48:50 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:08:21 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,19 @@ int	ft_average(t_stack *stack)
 	return ((int)ret);
 }
 
+/* best for 500 so far 2 uncoined pb cheapest no rr rrr ?!
+	best for 100 0 unmcoined pb cheapest no rr rrr*/
+
 int	ft_determine_layers(t_stack *stack)
 {
 	if (stack->max_size > 499)
-		return (8);
-	else if (stack->max_size > 299)
-		return (6);
-	else if (stack->max_size > 99)
-		return (4);
-	else if (stack->max_size > 10)
 		return (2);
+	else if (stack->max_size > 299)
+		return (2);
+	else if (stack->max_size > 99)
+		return (0);
+	else if (stack->max_size > 10)
+		return (0);
 	else
 		return (0);
 }
