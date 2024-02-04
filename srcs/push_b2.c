@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:32:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/03 16:28:32 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/04 15:58:26 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ void	ft_pricing_to_a(t_stack *stack_a, t_stack *stack_b)
 }*/
 
 
-void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
+/*void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 {
 	int		cost;
 	t_node	*tmp;
@@ -197,6 +197,52 @@ void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 			< cost && layer == tmp->data->layer)
 		{
 			cost = ft_abs(tmp->data->cost_a) + ft_abs(tmp->data->cost_b);
+			to_push = tmp->data->index;
+		}
+		tmp = tmp->next;
+	}
+	tmp = ft_select_node(stack_b, to_push);
+	ft_prepare_stacks(stack_a, stack_b, tmp, ret);
+	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
+}*/
+
+static int	ft_cost(t_node *tmp)
+{
+	int	sum;
+	int	a;
+	int	b;
+
+	a = tmp->data->cost_a;
+	b = tmp->data->cost_b;
+	if ((a > 0 && b > 0) || (a < 0 && b < 0))
+	{
+		if (a >= b)
+			sum = a;
+		else
+			sum = b;
+	}
+	else
+		sum = ft_abs(a) + ft_abs(b);
+	return (sum);
+}
+
+void	ft_pushback_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
+{
+	int		cost;
+	int		sum;
+	t_node	*tmp;
+	int		to_push;
+	int		layer;
+
+	layer = ft_highest_layer(stack_b);
+	cost = INT_MAX;
+	tmp = stack_b->head;
+	while (tmp)
+	{
+		sum = ft_cost(tmp);
+		if (sum < cost && layer == tmp->data->layer)
+		{
+			cost = sum;
 			to_push = tmp->data->index;
 		}
 		tmp = tmp->next;
