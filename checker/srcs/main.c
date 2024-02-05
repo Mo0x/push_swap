@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:42:29 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 14:15:24 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:44:22 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack *b;
+
 	char	*line;
 
 	if (ac == 1)
 		return (0);
 	ft_arg_init(ac, av);
 	a = ft_arg_parser(ac, av);
+	b = ft_init_b(a);
 	line = get_next_line(STDIN_FILENO);
 	while (line)
 	{

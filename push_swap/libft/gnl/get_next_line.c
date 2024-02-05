@@ -6,11 +6,12 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:30:37 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/11/07 15:04:08 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:45:20 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 #define BUFFER_SIZE 1024
 
 static char	*ft_get_line_and_clean(int fd, char **garbage)

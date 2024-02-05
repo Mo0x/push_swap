@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:15:46 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 14:24:11 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:50:47 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-static void	error(t_stack *a, t_stack *b)
+void	ft_error(t_stack *a, t_stack *b)
 {
 	ft_nodes_clear(&(a->head));
 	ft_nodes_clear(&(b->head));
@@ -37,28 +37,42 @@ static void	error(t_stack *a, t_stack *b)
 
 void	ft_parser(t_stack *a, t_stack *b, char *line)
 {
-	if (!ft_strcmp(command, "pa\n"))
+	if (!ft_strcmp(line, "pa\n"))
 		ft_pa(a, b);
-	else if (!ft_strcmp(command, "pb\n"))
+	else if (!ft_strcmp(line, "pb\n"))
 		ft_pb(a, b);
-	else if (!ft_strcmp(command, "sa\n"))
+	else if (!ft_strcmp(line, "sa\n"))
 		ft_sa(a);
-	else if (!ft_strcmp(command, "sb\n"))
+	else if (!ft_strcmp(line, "sb\n"))
 		ft_sb(b);
-	else if (!ft_strcmp(command, "ss\n"))
+	else if (!ft_strcmp(line, "ss\n"))
 		ft_ss(a, b);
-	else if (!ft_strcmp(command, "ra\n"))
+	else if (!ft_strcmp(line, "ra\n"))
 		ft_ra(a);
-	else if (!ft_strcmp(command, "rb\n"))
+	else if (!ft_strcmp(line, "rb\n"))
 		ft_rb(b);
-	else if (!ft_strcmp(command, "rr\n"))
+	else if (!ft_strcmp(line, "rr\n"))
 		ft_rr(a, b);
-	else if (!ft_strcmp(command, "rra\n"))
+	else if (!ft_strcmp(line, "rra\n"))
 		ft_rra(a);
-	else if (!ft_strcmp(command, "rrb\n"))
+	else if (!ft_strcmp(line, "rrb\n"))
 		ft_rrb(b);
-	else if (!ft_strcmp(command, "rrr\n"))
+	else if (!ft_strcmp(line, "rrr\n"))
 		ft_rrr(a, b);
 	else
-		error(a, b);
+		ft_error(a, b);
+}
+
+t_stack	*ft_init_b(t_stack *a)
+{
+	t_stack	*b;
+
+	b = malloc(sizeof(t_stack));
+	if (!b)
+		ft_error(a, b);
+	b->size = 0;
+	b->head = NULL;
+	b->tail = NULL;
+	b->max_size = a->size;
+	return (b);
 }
