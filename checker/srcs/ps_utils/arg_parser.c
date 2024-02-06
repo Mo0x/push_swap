@@ -6,13 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:36 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 16:52:22 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:15:45 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-
 
 static t_stack	*ft_parse(char **argv, int starting)
 {

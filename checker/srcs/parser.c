@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:15:46 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 14:50:47 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:09:36 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	ft_strcmp(char *s1, char *s2)
 	{
 		while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 			i++;
-	}	
-	return (s1[i] - s2[i]);
+		return (s1[i] - s2[i]);
+	}
+	else
+		return (-256);
 }
 
 void	ft_error(t_stack *a, t_stack *b)

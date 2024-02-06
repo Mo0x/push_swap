@@ -9,7 +9,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJS) $(PS_A)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-	cp $(NAME) ../push_swap
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c -o $@ $^

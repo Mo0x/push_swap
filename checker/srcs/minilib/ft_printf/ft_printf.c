@@ -6,11 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:09:31 by mgovinda          #+#    #+#             */
-/*   Updated: 2023/11/10 17:43:09 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:18:00 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker.h"
 
 int	ft_char(int fd, char c)
 {

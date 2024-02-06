@@ -6,12 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:22:17 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/01/26 17:26:55 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:01:00 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 int	ft_is_sorted(t_stack *stack)
 {

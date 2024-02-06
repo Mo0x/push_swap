@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:36:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 17:36:14 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:18:30 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdarg.h>
 
 typedef struct s_data
 {
@@ -82,12 +83,15 @@ t_node			*ft_node_new(int content);
 void			ft_node_add_back(t_node **lst, t_node *new);
 void			ft_fix_index(t_node *to_fix);
 void			ft_nodes_clear(t_node **lst);
+int				ft_is_sorted(t_stack *stack);
 
 /*argcheck*/
 void			ft_arg_init(int argc, char **argv);
 void			ft_arg_checker_split(char **argv);
 void			ft_eq(char *msg);
 void			ft_free_tab(char **tab);
+t_stack			*ft_arg_parser(int argc, char **argv);
+
 /*minilib*/
 int				ft_strcmp(char *s1, char *s2);
 int				ft_atoi(const char *nptr);
