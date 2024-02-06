@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:36:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 15:43:19 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:12:18 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define BUFFER_SIZE 4
 # include <fcntl.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_data
 {
@@ -66,5 +67,20 @@ char	*ft_rr(t_stack *stack_a, t_stack *stack_b);
 char	*ft_rra(t_stack *stack);
 char	*ft_rrb(t_stack *stack);
 char	*ft_rrr(t_stack *stack_a, t_stack *stack_b);
+
+/* linked list*/
+void	ft_node_del(t_stack *stack, t_node *to_del);
+void	ft_node_add_front(t_stack *lst, t_node *new);
+t_node	*ft_node_last(t_node *lst);
+t_node	*ft_node_first(t_node *lst);
+void	ft_swap_nodes(t_node *a, t_node *b);
+t_node	*ft_select_node(t_stack *stack, int index);
+t_node	*ft_node_dup(t_node *node);
+void	ft_copy_data(t_data *og, t_data *copy);
+
+
+/*argcheck*/
+void	ft_arg_init(int argc, char **argv);
+void	ft_arg_checker_split(char **argv);
 
 #endif

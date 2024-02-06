@@ -6,11 +6,11 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 15:45:45 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:14:24 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checcker.h"
+#include "checker.h"
 
 static int	ft_strdigit(char *str)
 {
@@ -40,7 +40,7 @@ void	ft_arg_checker(int argc, char **argv, int index)
 		if (ft_strdigit(argv[i]) == 0 || !argv[i][0] || ft_atoll(argv[i]) > INT_MAX \
 			|| ft_atoll(argv[i]) < INT_MIN)
 		{
-			ft_printf(2, "Error\n");
+			write(2, "Error\n", 6);
 			exit(-1);
 		}
 	}
@@ -51,7 +51,7 @@ void	ft_arg_checker(int argc, char **argv, int index)
 		while (++j < argc)
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 			{
-				ft_printf(2, "Error\n");
+				write(2, "Error\n", 6);
 				exit(-1);
 			}
 	}

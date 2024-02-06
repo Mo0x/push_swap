@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_b_old.c                                       :+:      :+:    :+:   */
+/*   push_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/04 18:26:21 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:27:17 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,11 +132,15 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, \
 {
 	while (stack_a->head)
 	{
+		int coin= 0;
 		ft_pricing_to_b(stack_a);
 		if (layered)
 			ft_push_cheapest_layered(stack_a, stack_b, ret);
 		else
 			ft_push_cheapest(stack_a, stack_b, ret);
+		if(coin % 2)
+			ft_lstadd_back(ret, ft_lstnew(ft_rrb(stack_b)));
+		coin++;
 	}	
 	
 	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
