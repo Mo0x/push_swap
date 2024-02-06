@@ -6,13 +6,13 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:36:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 18:40:37 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:09:48 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
-# define BUFFER_SIZE 4
+# define BUFFER_SIZE 256
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>

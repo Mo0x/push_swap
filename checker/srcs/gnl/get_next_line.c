@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:30:37 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 15:40:33 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:22:53 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*ft_strdup(char *s)
 static char	*ft_substr(char *s, int start, int len)
 {
 	int		i;
-	char				*ret;
+	char	*ret;
 
 	i = 0;
 	if (!s)
@@ -67,6 +67,8 @@ static char	*ft_recycle(int fd, char **garbage)
 		i++;
 	ret = ft_substr(garbage[fd], 0, i);
 	trashbag = ft_substr(garbage[fd], i, ft_strlen(&garbage[fd][i]));
+	if (ft_strlen(trashbag) == 0)
+		free(trashbag);
 	free(garbage[fd]);
 	garbage[fd] = trashbag;
 	if (!ret || !trashbag || ft_strlen(ret) == 0)

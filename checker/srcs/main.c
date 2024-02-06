@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:42:29 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 18:45:26 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:03:43 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ int	main(int ac, char **av)
 	ft_nodes_clear(&(b->head));
 	free(a);
 	free(b);
-	free(line);
 }
