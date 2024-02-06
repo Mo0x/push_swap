@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:03:35 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 16:09:01 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:01:00 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,47 @@ t_node	*ft_select_node(t_stack *stack, int index)
 	while (tmp->data->index != index)
 		tmp = tmp->next;
 	return (tmp);
+}
+
+t_node	*ft_node_new(int content)
+{
+	t_node	*ret;
+	t_data	*data;
+
+	ret = malloc(sizeof(t_node));
+	if (!ret)
+		return (NULL);
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (NULL);
+	ret->data = data;
+	ret->next = NULL;
+	ret->prev = NULL;
+	ret->data->num = content;
+	ret->data->index = 0;
+	ret->data->cost_a = 0;
+	ret->data->cost_b = 0;
+	ret->data->layer = 0;
+	ret->data->s_index = -1;
+	return (ret);
+}
+
+void	ft_node_add_back(t_node **lst, t_node *new)
+{
+	t_node	*last;
+
+	if (!new)
+		return ;
+	if (!(*lst))
+	{
+		*lst = new;
+		new->data->index = 0;
+	}
+	else
+	{
+		last = ft_node_last(*lst);
+		last->next = new;
+		new->prev = last;
+		new->data->index = new->prev->data->index + 1;
+	}
 }
