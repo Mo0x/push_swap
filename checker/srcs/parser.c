@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:15:46 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 18:09:36 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:41:01 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	ft_parser(t_stack *a, t_stack *b, char *line)
 		ft_rrr(a, b);
 	else
 		ft_error(a, b);
+	free(line);
 }
 
 t_stack	*ft_init_b(t_stack *a)
