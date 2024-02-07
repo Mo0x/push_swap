@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:11:51 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/04 16:37:00 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:30:30 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_baby_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 		ft_pushback_cheapest(stack_a, stack_b, ret);
 	}
 	ft_end_rotate(stack_a, ret);
+	ft_nodes_clear(&(s->head));
+	free(s);
 }
 
 t_node	*biggest_node(t_stack *stack)

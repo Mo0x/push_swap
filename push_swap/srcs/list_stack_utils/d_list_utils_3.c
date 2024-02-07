@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:22:17 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 17:01:00 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:55:18 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,36 @@ int	ft_s_index_to_index(t_stack *stack, int s_index)
 		tmp = tmp->next;
 	}
 	return (-1);
+}
+
+int	ft_lowest_s(t_stack *a)
+{
+	t_node	*tmp;
+	int ret;
+
+	ret = INT_MAX;
+	tmp = a->head;
+	while (tmp)
+	{
+		if (tmp->data->s_index < ret)
+			ret = tmp->data->s_index;
+		tmp = tmp->next;
+	}
+	return (ret);
+}
+
+int ft_highest_s(t_stack *a)
+{
+	t_node	*tmp;
+	int		ret;
+
+	ret = INT_MIN;
+	tmp = a->head;
+	while (tmp)
+	{
+		if (tmp->data->s_index > ret)
+			ret = tmp->data->s_index;
+		tmp = tmp->next; 
+	}
+	return (ret);
 }

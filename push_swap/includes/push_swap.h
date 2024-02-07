@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/03 13:30:39 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:55:40 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,8 @@ t_node	*ft_node_dup(t_node *node);
 int		ft_s_index_to_index(t_stack *stack, int s_index);
 int		ft_is_sorted(t_stack *stack);
 void	ft_delete_node(t_list **head, t_list *to_delete);
+int		ft_lowest_s(t_stack *a);
+int		ft_highest_s(t_stack *a);
+
 
 #endif
