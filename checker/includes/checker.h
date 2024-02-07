@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:36:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 19:09:48 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:49:52 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_stack
 
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_parser(t_stack *a, t_stack *b, char *line);
-void			ft_error(t_stack *a, t_stack *b);
+void			ft_error_line(t_stack *a, t_stack *b, char *line);
 t_stack			*ft_init_b(t_stack *a);
 
 /*GNL*/

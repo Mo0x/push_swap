@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:42:29 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 19:03:43 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:43:05 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	int		len;
 	char	*line;
 
@@ -29,7 +29,6 @@ int	main(int ac, char **av)
 	while (line)
 	{
 		ft_parser(a, b, line);
-		free(line);
 		line = get_next_line(STDIN_FILENO);
 	}
 	if (ft_is_sorted(a) && a->size == len)

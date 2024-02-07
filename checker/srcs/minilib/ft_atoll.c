@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:03:54 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 16:28:20 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:35:53 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static int	ft_isspace(char c)
 
 long long	ft_atoll(const char *nptr)
 {
-	int	is_neg;
+	int			is_neg;
 	long long	ret;
-	int	i;
+	int			i;
 
 	ret = 0;
 	is_neg = 1;

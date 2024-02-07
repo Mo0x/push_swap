@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:15:46 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 19:10:34 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:51:17 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s1 && s2)
@@ -33,6 +33,17 @@ void	ft_error(t_stack *a, t_stack *b)
 	ft_nodes_clear(&(b->head));
 	free(a);
 	free(b);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void	ft_error_line(t_stack *a, t_stack *b, char *line)
+{
+	ft_nodes_clear(&(a->head));
+	ft_nodes_clear(&(b->head));
+	free(a);
+	free(b);
+	free(line);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -62,10 +73,7 @@ void	ft_parser(t_stack *a, t_stack *b, char *line)
 	else if (!ft_strcmp(line, "rrr\n"))
 		ft_rrr(a, b);
 	else
-	{
-		free(line);
-		ft_error(a, b);
-	}
+		ft_error_line(a, b, line);
 }
 
 t_stack	*ft_init_b(t_stack *a)

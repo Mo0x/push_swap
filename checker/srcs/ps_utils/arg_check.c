@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:29:41 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/06 16:14:24 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:29:19 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ static int	ft_strdigit(char *str)
 	return (1);
 }
 
+void	ft_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(-1);
+}
+
 void	ft_arg_checker(int argc, char **argv, int index)
 {
 	int	j;
@@ -37,23 +43,19 @@ void	ft_arg_checker(int argc, char **argv, int index)
 	i = index - 1;
 	while (++i < argc)
 	{
-		if (ft_strdigit(argv[i]) == 0 || !argv[i][0] || ft_atoll(argv[i]) > INT_MAX \
-			|| ft_atoll(argv[i]) < INT_MIN)
-		{
-			write(2, "Error\n", 6);
-			exit(-1);
-		}
+		if (ft_strdigit(argv[i]) == 0 || !argv[i][0] || \
+		ft_atoll(argv[i]) > INT_MAX || ft_atoll(argv[i]) < INT_MIN)
+			ft_exit();
 	}
 	i = index - 1;
 	while (++i < argc)
 	{
 		j = i;
 		while (++j < argc)
+		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-			{
-				write(2, "Error\n", 6);
-				exit(-1);
-			}
+				ft_exit();
+		}
 	}
 }
 
@@ -70,8 +72,8 @@ void	ft_arg_checker_split(char **argv)
 		exit(1);
 	if (ft_strcmp(tmp[0], argv[1]) == 0)
 	{
-		if (ft_strdigit(argv[1]) == 0 || !argv[1][0] || ft_atoll(argv[1]) > INT_MAX \
-			|| ft_atoll(argv[1]) < INT_MIN)
+		if (ft_strdigit(argv[1]) == 0 || !argv[1][0] || \
+		ft_atoll(argv[1]) > INT_MAX || ft_atoll(argv[1]) < INT_MIN)
 			ft_eq("Error\n");
 		else
 			exit(0);

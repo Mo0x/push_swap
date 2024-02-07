@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:23:17 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 15:44:53 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:52:49 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_sa(t_stack *stack)
 char	*ft_sb(t_stack *stack)
 {
 	ft_sa(stack);
-	return("sb");
+	return ("sb");
 }
 
 char	*ft_ss(t_stack *stack_a, t_stack *stack_b)
