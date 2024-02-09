@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:35:55 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/05 13:20:04 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:19:01 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,6 @@ void	ft_bigboi_sort(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	{
 		ft_printf(1, "stack a i = %d, s_i = %d :%d, layer = %d cost = a=%d b=%d\n", tmp->data->index,tmp->data->s_index, tmp->data->num, tmp->data->layer, tmp->data->cost_a, tmp->data->cost_b);
 		tmp = tmp->next;
-	}*/
-/*t_node 	*tmp2 = stack_b->head;
-	while (tmp2)
-	{
-		ft_printf(1, "stack b i = %d, s_i = %d :%d, layer = %d cost = %d \n", tmp2->data->index,tmp2->data->s_index, tmp2->data->num, tmp2->data->layer, tmp2->data->cost);
-		tmp2 = tmp2->next;
 	}*/
 		ft_end_rotate(stack_a, ret);
 	/*tmp = stack_a->head;

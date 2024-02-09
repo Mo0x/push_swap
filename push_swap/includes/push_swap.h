@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:34:10 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/07 16:55:40 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:22:48 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_data
 {
 	int				num;
 	int				index;
+	int				pos;
 	int				cost_a;
 	int				cost_b;
 	int				layer;

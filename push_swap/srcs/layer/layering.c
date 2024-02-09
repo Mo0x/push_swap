@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:08:33 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/07 17:05:25 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/09 15:30:36 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_average(t_stack *stack)
 int	ft_determine_layers(t_stack *stack)
 {
 	if (stack->max_size > 499)
-		return (2);
+		return (0);
 	else if (stack->max_size > 299)
 		return (2);
 	else if (stack->max_size > 99)
