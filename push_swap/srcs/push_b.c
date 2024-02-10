@@ -6,7 +6,7 @@
 /*   By: mgovinda <mgovinda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:38 by mgovinda          #+#    #+#             */
-/*   Updated: 2024/02/07 16:47:17 by mgovinda         ###   ########.fr       */
+/*   Updated: 2024/02/10 13:27:59 by mgovinda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,10 +127,32 @@ void	ft_push_cheapest(t_stack *stack_a, t_stack *stack_b, t_list **ret)
 	return (s_index);
 }*/
 
+void 	ft_pushtill_3(t_stack *a, t_stack *b, t_list **ret)
+{
+	int	pushed;
+	int i;
+
+	pushed = 0;
+	i = 0;
+	while (a->max_size > 5 && i < a->max_size && pushed < a->max_size / 2)
+	{
+		if (a->head->data->s_index <= a->max_size / 2)
+		{
+			ft_lstadd_back(ret, ft_lstnew(ft_pb(a, b)));
+			pushed++;
+		}
+		else
+			ft_lstadd_back(ret, ft_lstnew(ft_ra(a)));
+		i++;
+	}
+	while (a->size > 3)
+		ft_lstadd_back(ret, ft_lstnew(ft_pb(a, b)));
+}
+
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b, \
 		int layered, t_list **ret)
 {
-	while (stack_a->head)
+	/*while (stack_a->head)
 	{
 		ft_pricing_to_b(stack_a);
 		if (layered)
@@ -140,7 +162,9 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, \
 	}	
 	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
 	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
-	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));
+	ft_lstadd_back(ret, ft_lstnew(ft_pa(stack_a, stack_b)));*/
+	(void) layered;
+	ft_pushtill_3(stack_a, stack_b, ret);
 	ft_tiny_sort(stack_a, ret);
 	while (stack_b->head)
 	{
